@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="igrdbModelStoreContainer" CdmEntityContainer="igrdbEntities">
+    <EntitySetMapping Name="beneficiaries">
+      <EntityTypeMapping TypeName="igrdbModel.beneficiary">
+        <MappingFragment StoreEntitySet="beneficiaries">
+          <ScalarProperty Name="Benefuciary_ID" ColumnName="Benefuciary_ID" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="Account_Number" ColumnName="Account_Number" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="Narration" ColumnName="Narration" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="igrs">
+      <EntityTypeMapping TypeName="igrdbModel.igr">
+        <MappingFragment StoreEntitySet="igr">
+          <ScalarProperty Name="IGR_Code" ColumnName="IGR_Code" />
+          <ScalarProperty Name="IGR_Name" ColumnName="IGR_Name" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mdas">
+      <EntityTypeMapping TypeName="igrdbModel.mda">
+        <MappingFragment StoreEntitySet="mda">
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="IGR_ID" ColumnName="IGR_ID" />
+          <ScalarProperty Name="MDA_Category" ColumnName="MDA_Category" />
+          <ScalarProperty Name="MDA_DetailedCategory" ColumnName="MDA_DetailedCategory" />
+          <ScalarProperty Name="MDA_Name" ColumnName="MDA_Name" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mda_category">
+      <EntityTypeMapping TypeName="igrdbModel.mda_category">
+        <MappingFragment StoreEntitySet="mda_category">
+          <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+          <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mda_stations">
+      <EntityTypeMapping TypeName="igrdbModel.mda_stations">
+        <MappingFragment StoreEntitySet="mda_stations">
+          <ScalarProperty Name="MDAStation_ID" ColumnName="MDAStation_ID" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="MDAStation_Name" ColumnName="MDAStation_Name" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pos">
+      <EntityTypeMapping TypeName="igrdbModel.pos">
+        <MappingFragment StoreEntitySet="pos">
+          <ScalarProperty Name="POS_ID" ColumnName="POS_ID" />
+          <ScalarProperty Name="POS_imei" ColumnName="POS_imei" />
+          <ScalarProperty Name="POS_Name" ColumnName="POS_Name" />
+          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+          <ScalarProperty Name="Activation" ColumnName="Activation" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="Station_ID" ColumnName="Station_ID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reportslistings">
+      <EntityTypeMapping TypeName="igrdbModel.reportslisting">
+        <MappingFragment StoreEntitySet="reportslisting">
+          <ScalarProperty Name="listing_ID" ColumnName="listing_ID" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="ReportServerURL" ColumnName="ReportServerURL" />
+          <ScalarProperty Name="MenuUrl" ColumnName="MenuUrl" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="revenueheads">
+      <EntityTypeMapping TypeName="igrdbModel.revenuehead">
+        <MappingFragment StoreEntitySet="revenueheads">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RevenueCode" ColumnName="RevenueCode" />
+          <ScalarProperty Name="Biller_ID" ColumnName="Biller_ID" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="RevenueName" ColumnName="RevenueName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Taxable" ColumnName="Taxable" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subheads">
+      <EntityTypeMapping TypeName="igrdbModel.subhead">
+        <MappingFragment StoreEntitySet="subheads">
+          <ScalarProperty Name="SubHead_ID" ColumnName="SubHead_ID" />
+          <ScalarProperty Name="SubHead_Code" ColumnName="SubHead_Code" />
+          <ScalarProperty Name="RevHead_ID" ColumnName="RevHead_ID" />
+          <ScalarProperty Name="SubHead_Name" ColumnName="SubHead_Name" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Government" ColumnName="Government" />
+          <ScalarProperty Name="Agency" ColumnName="Agency" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="Taxable" ColumnName="Taxable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

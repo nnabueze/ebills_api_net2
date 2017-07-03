@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="igrdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="beneficiary">
+    <Key>
+      <PropertyRef Name="Benefuciary_ID" />
+    </Key>
+    <Property Name="Benefuciary_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="Account_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AccountName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="BankID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="Narration" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="igr">
+    <Key>
+      <PropertyRef Name="IGR_Code" />
+    </Key>
+    <Property Name="IGR_Code" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IGR_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Logo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" />
+    <Property Name="DateUpdated" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="mda">
+    <Key>
+      <PropertyRef Name="MDA_ID" />
+    </Key>
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IGR_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDA_Category" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDA_DetailedCategory" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="MDA_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" />
+    <Property Name="DateUpdated" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="mda_category">
+    <Key>
+      <PropertyRef Name="Category_ID" />
+    </Key>
+    <Property Name="Category_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Category_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" />
+    <Property Name="DateUpdated" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="mda_stations">
+    <Key>
+      <PropertyRef Name="MDAStation_ID" />
+    </Key>
+    <Property Name="MDAStation_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDAStation_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" />
+    <Property Name="DateUpdated" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="pos">
+    <Key>
+      <PropertyRef Name="POS_ID" />
+    </Key>
+    <Property Name="POS_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="POS_imei" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="POS_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ActivationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activation" Type="Boolean" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="Station_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="reportslisting">
+    <Key>
+      <PropertyRef Name="listing_ID" />
+    </Key>
+    <Property Name="listing_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReportServerURL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MenuUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParentID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="revenuehead">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RevenueCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Biller_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RevenueName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="Taxable" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="ModifiedDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="subhead">
+    <Key>
+      <PropertyRef Name="SubHead_ID" />
+    </Key>
+    <Property Name="SubHead_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubHead_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RevHead_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubHead_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="Government" Type="Decimal" />
+    <Property Name="Agency" Type="Decimal" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="ModifiedDate" Type="DateTime" />
+    <Property Name="Taxable" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="igrdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="beneficiaries" EntityType="Self.beneficiary" />
+    <EntitySet Name="igrs" EntityType="Self.igr" />
+    <EntitySet Name="mdas" EntityType="Self.mda" />
+    <EntitySet Name="mda_category" EntityType="Self.mda_category" />
+    <EntitySet Name="mda_stations" EntityType="Self.mda_stations" />
+    <EntitySet Name="pos" EntityType="Self.pos" />
+    <EntitySet Name="reportslistings" EntityType="Self.reportslisting" />
+    <EntitySet Name="revenueheads" EntityType="Self.revenuehead" />
+    <EntitySet Name="subheads" EntityType="Self.subhead" />
+  </EntityContainer>
+</Schema>
