@@ -148,7 +148,7 @@
     <Compile Include="Models\beneficiary.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EbillsRequest.cs" />
+    <Compile Include="Models\Field.cs" />
     <Compile Include="Models\igr.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>
     </Compile>
@@ -167,6 +167,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>IgrAdo.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\mda.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>
     </Compile>
@@ -176,6 +177,7 @@
     <Compile Include="Models\mda_stations.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Param.cs" />
     <Compile Include="Models\pos.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>
     </Compile>
@@ -189,6 +191,8 @@
       <DependentUpon>IgrAdo.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Utility.cs" />
+    <Compile Include="Models\ValidationRequest.cs" />
+    <Compile Include="Models\ValidationResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
