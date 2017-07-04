@@ -8,12 +8,8 @@ namespace IgrEbillsApi.Models.IgrRepository
 {
     public class IgrRepository
     {
-        private igrdbEntities3 db;
+        private igrdbEntities3 db = new igrdbEntities3();
 
-        public IgrRepository()
-        {
-            db = new igrdbEntities3();
-        }
 
         //getting list of igr
         public IEnumerable<igr> GetIgrList()

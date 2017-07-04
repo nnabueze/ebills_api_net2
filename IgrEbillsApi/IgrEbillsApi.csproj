@@ -123,6 +123,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Models\pocos\IgrAdo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IgrAdo.edmx</DependentUpon>
+      <LastGenOutput>IgrAdo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\pocos\IgrAdo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IgrAdo.edmx</DependentUpon>
+      <LastGenOutput>IgrAdo.cs</LastGenOutput>
+    </Content>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config">
@@ -131,27 +141,66 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\IgrController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IgrRepository\IgrRepository.cs" />
-    <Compile Include="Models\poco\beneficiary.cs" />
-    <Compile Include="Models\poco\igr.cs" />
-    <Compile Include="Models\poco\IgrAdo.cs" />
-    <Compile Include="Models\poco\mda.cs" />
-    <Compile Include="Models\poco\mda_category.cs" />
-    <Compile Include="Models\poco\mda_stations.cs" />
-    <Compile Include="Models\poco\pos.cs" />
-    <Compile Include="Models\poco\reportslisting.cs" />
-    <Compile Include="Models\poco\revenuehead.cs" />
-    <Compile Include="Models\poco\subhead.cs" />
+    <Compile Include="Models\pocos\beneficiary.cs">
+      <DependentUpon>IgrAdo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pocos\igr.cs">
+      <DependentUpon>IgrAdo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pocos\IgrAdo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IgrAdo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pocos\IgrAdo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IgrAdo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pocos\IgrAdo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IgrAdo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pocos\mda.cs">
+      <DependentUpon>IgrAdo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pocos\mda_category.cs">
+      <DependentUpon>IgrAdo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pocos\mda_stations.cs">
+      <DependentUpon>IgrAdo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pocos\pos.cs">
+      <DependentUpon>IgrAdo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pocos\reportslisting.cs">
+      <DependentUpon>IgrAdo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pocos\revenuehead.cs">
+      <DependentUpon>IgrAdo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pocos\subhead.cs">
+      <DependentUpon>IgrAdo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\pocos\IgrAdo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IgrAdo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\pocos\IgrAdo.edmx.diagram">
+      <DependentUpon>IgrAdo.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -162,7 +211,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
