@@ -103,24 +103,22 @@ namespace IgrEbillsApi.Models
         //getting list of subhead
         public IList<Item> GetSubheadJoin(string mdaid)
         {
-            IList<Item> result = new List<Item>();
-            //var mdaList = db.mdas.Where(o=>o.MDA_ID == mdaid).ToList();
-            //var revenueList = db.revenueheads.ToList();
-            //var subheadList = db.subheads.ToList();
+            IList<Item> result = new List<Item>();            
+            var revenueList = db.revenueheads.Where(o=>o.MDA_ID == mdaid).ToList();
 
-            var subhead = (from m in db.revenueheads
-                             join s in db.subheads on m.ID equals s.RevHead_ID
-                           where m.MDA_ID == mdaid
-                           select s);
-
-            foreach (var item in subhead)
+            foreach (var item in revenueList)
             {
-                Item ItemParam = new Item();
+                var subheadList = db.subheads.Where(o=>o.RevHead_ID == item.ID);
 
-                ItemParam.Name = item.SubHead_Name;
-                ItemParam.value = item.SubHead_ID;
+                foreach (var items in subheadList)
+                {
+                    Item ItemParam = new Item();
 
-                result.Add(ItemParam);
+                    ItemParam.Name = items.SubHead_Name;
+                    ItemParam.value = items.SubHead_ID;
+
+                    result.Add(ItemParam);
+                }
             }
 
             return result;
