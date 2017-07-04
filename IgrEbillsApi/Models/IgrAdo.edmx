@@ -273,7 +273,7 @@
           <Property Name="ModifiedDate" Type="DateTime" />
           <Property Name="Taxable" Type="Boolean" />
         </EntityType>
-        <EntityContainer Name="igrdbEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="igrdbEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="beneficiaries" EntityType="Self.beneficiary" />
           <EntitySet Name="igrs" EntityType="Self.igr" />
           <EntitySet Name="mdas" EntityType="Self.mda" />
@@ -289,7 +289,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="igrdbModelStoreContainer" CdmEntityContainer="igrdbEntities3">
+        <EntityContainerMapping StorageEntityContainer="igrdbModelStoreContainer" CdmEntityContainer="igrdbEntities4">
           <EntitySetMapping Name="beneficiaries">
             <EntityTypeMapping TypeName="igrdbModel.beneficiary">
               <MappingFragment StoreEntitySet="beneficiaries">

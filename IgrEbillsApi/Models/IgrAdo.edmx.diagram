@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="84ea217401dc4e44bf71c56b59e06ad5" Name="Diagram1">
+      <Diagram DiagramId="5c9396cf61ba467a8ff62da1403ee09e" Name="Diagram1">
         <EntityTypeShape EntityType="igrdbModel.beneficiary" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="igrdbModel.igr" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="igrdbModel.mda" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />

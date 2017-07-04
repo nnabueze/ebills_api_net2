@@ -7,23 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IgrEbillsApi.Models.pocos
+namespace IgrEbillsApi.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class revenuehead
+    public partial class subhead
     {
-        public string ID { get; set; }
-        public string RevenueCode { get; set; }
-        public string Biller_ID { get; set; }
-        public string MDA_ID { get; set; }
-        public string RevenueName { get; set; }
+        public string SubHead_ID { get; set; }
+        public string SubHead_Code { get; set; }
+        public string RevHead_ID { get; set; }
+        public string SubHead_Name { get; set; }
         public Nullable<decimal> Amount { get; set; }
-        public string Taxable { get; set; }
+        public Nullable<decimal> Government { get; set; }
+        public Nullable<decimal> Agency { get; set; }
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public Nullable<bool> Taxable { get; set; }
     }
 }

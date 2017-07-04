@@ -7,23 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IgrEbillsApi.Models.pocos
+namespace IgrEbillsApi.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class pos
+    public partial class mda_stations
     {
-        public string POS_ID { get; set; }
-        public string POS_imei { get; set; }
-        public string POS_Name { get; set; }
-        public string ActivationCode { get; set; }
-        public Nullable<bool> Activation { get; set; }
+        public string MDAStation_ID { get; set; }
         public string MDA_ID { get; set; }
-        public string Station_ID { get; set; }
+        public string MDAStation_Name { get; set; }
         public string CreatedBy { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
         public string ModifiedBy { get; set; }
-        public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
+        public Nullable<System.DateTime> DateUpdated { get; set; }
     }
 }

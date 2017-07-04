@@ -7,16 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IgrEbillsApi.Models.pocos
+namespace IgrEbillsApi.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class mda_stations
+    public partial class mda_category
     {
-        public string MDAStation_ID { get; set; }
-        public string MDA_ID { get; set; }
-        public string MDAStation_Name { get; set; }
+        public string Category_ID { get; set; }
+        public string Category_Name { get; set; }
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }

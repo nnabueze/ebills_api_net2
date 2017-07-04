@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IgrEbillsApi.Models.pocos
+namespace IgrEbillsApi.Models
 {
     using System;
     using System.Collections.Generic;

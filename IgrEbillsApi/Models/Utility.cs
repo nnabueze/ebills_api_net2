@@ -1,5 +1,4 @@
-﻿using IgrEbillsApi.Models.pocos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using static IgrEbillsApi.Models.EbillsRequest;
@@ -12,7 +11,7 @@ namespace IgrEbillsApi.Models
         private ValidationResponse sResponse = new ValidationResponse();
         private Field FieldItem = new Field(); 
 
-        private igrdbEntities3 db = new igrdbEntities3();
+        private igrdbEntities4 db = new igrdbEntities4();
 
         public Utility(ValidationRequest xRequest)
         {

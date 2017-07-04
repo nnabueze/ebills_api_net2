@@ -126,7 +126,7 @@
     <Property Name="ModifiedDate" Type="DateTime" />
     <Property Name="Taxable" Type="Boolean" />
   </EntityType>
-  <EntityContainer Name="igrdbEntities4" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="igrdbEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="beneficiaries" EntityType="Self.beneficiary" />
     <EntitySet Name="igrs" EntityType="Self.igr" />
     <EntitySet Name="mdas" EntityType="Self.mda" />

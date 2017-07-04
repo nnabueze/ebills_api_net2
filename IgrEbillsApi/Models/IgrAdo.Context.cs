@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IgrEbillsApi.Models.pocos
+namespace IgrEbillsApi.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class igrdbEntities3 : DbContext
+    public partial class igrdbEntities4 : DbContext
     {
-        public igrdbEntities3()
-            : base("name=igrdbEntities3")
+        public igrdbEntities4()
+            : base("name=igrdbEntities4")
         {
         }
     
