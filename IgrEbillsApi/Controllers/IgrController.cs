@@ -42,7 +42,7 @@ namespace IgrEbillsApi.Controllers
             //checking if the productname is empty
             if (string.IsNullOrEmpty(vResponse.ProductName))
             {
-                return GetHttpMsg(vResponse, "ProductName parameter missing");
+                return GetHttpMsg("ProductName parameter missing");
             }
 
             //checking if the product is non-tax
@@ -65,7 +65,7 @@ namespace IgrEbillsApi.Controllers
             //if ()
             //sResponse = GetNonTax();
 
-            return GetHttpMsg(vResponse, "ProductName paramter missing");
+            return GetHttpMsg("ProductName paramter missing");
         }
 
 
@@ -79,23 +79,23 @@ namespace IgrEbillsApi.Controllers
             {
                 if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(payerid))
                 {
-                    return GetHttpMsg(vResponse, "Name or PayerId field can not be empty");
+                    return GetHttpMsg("Name or PayerId field can not be empty");
                 }
 
-                sResponse = utility.GetMdaResponse(vResponse, 2, ercasBillerId);
+                sResponse = utility.GetMdaResponse(2, ercasBillerId);
             }
 
             //checking if step is 2
-            //if (vResponse.Step.Equals(2))
-            //{
-            //    if (string.IsNullOrEmpty(mda) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(payerid) || string.IsNullOrEmpty(ercasBillerId))
-            //    {
-            //        return GetHttpMsg(vResponse, "Parameter Missing");
-            //    }
+            if (vResponse.Step.Equals(2))
+            {
+                if (string.IsNullOrEmpty(mda) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(payerid) || string.IsNullOrEmpty(ercasBillerId))
+                {
+                    return GetHttpMsg("Parameter Missing");
+                }
 
-            //    sResponse = utility.GetSubheadResponse(vResponse, 3, mda);
+                sResponse = utility.GetSubheadResponse(3, mda);
 
-            //}
+            }
 
             //checking if step is 3
             //if (vResponse.Step.Equals(3))
@@ -108,14 +108,14 @@ namespace IgrEbillsApi.Controllers
             //    sResponse = utility.GetResponse(vResponse, 4);
             //}
 
-            return GetHttpMsg(vResponse);
+            return GetHttpMsg();
 
         }
 
 
 
         //get HTTPerrorMessage
-        public HttpResponseMessage GetHttpMsg(ValidationRequest vResponse, string msg=null)
+        public HttpResponseMessage GetHttpMsg(string msg=null)
         {
             if (string.IsNullOrEmpty(msg))
             {
@@ -123,17 +123,17 @@ namespace IgrEbillsApi.Controllers
             }
             else
             {
-                return Request.CreateResponse<ValidationResponse>(HttpStatusCode.BadRequest, GetErrorResponse(vResponse, vResponse.Step, msg, "400"));
+                return Request.CreateResponse<ValidationResponse>(HttpStatusCode.BadRequest, GetErrorResponse(msg, "400"));
                 
             }
             
         }
 
         //getting error response
-        public ValidationResponse GetErrorResponse(ValidationRequest vResponse, int num, string msg, string code)
+        public ValidationResponse GetErrorResponse(string msg, string code)
         {
             sResponse.ProductName = vResponse.ProductName;
-            sResponse.NextStep = num;
+            sResponse.NextStep = vResponse.Step;
             sResponse.ResponseCode = code;
             sResponse.ResponseMessage = msg;
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IgrEbillsApi.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +19,7 @@ namespace IgrEbillsApi.Models
         }
 
         //priavte class to get response
-        public ValidationResponse GetMdaResponse(ValidationRequest vResponse, int num, string billerid)
+        public ValidationResponse GetMdaResponse(int num, string billerid)
         {
             sResponse.BillerName = vResponse.BillerName;
             sResponse.BillerID = vResponse.BillerID;
@@ -62,6 +63,67 @@ namespace IgrEbillsApi.Models
 
             return FieldItem;
 
+        }
+
+        //priavte class to get response
+        public ValidationResponse GetSubheadResponse(int num, string mdaid)
+        {
+            sResponse.BillerName = vResponse.BillerName;
+            sResponse.BillerID = vResponse.BillerID;
+            sResponse.ProductName = vResponse.ProductName;
+            sResponse.NextStep = num;
+            sResponse.ResponseCode = "00";
+            sResponse.ResponseMessage = "Successful";
+            sResponse.Param = vResponse.Param;
+            sResponse.field = GetSubheadField(mdaid);
+
+            return sResponse;
+        }
+
+
+        public Field GetSubheadField(String mda)
+        {
+            FieldItem = new Field();
+            
+
+            FieldItem.Name = "Subhead";
+            FieldItem.Type = "List";
+            FieldItem.Required = false;
+            FieldItem.Readonly = false;
+            FieldItem.MaxLength = 0;
+            FieldItem.Order = 0;
+            FieldItem.RequiredInNextStep = true;
+            FieldItem.AmountField = false;
+            FieldItem.Item = GetSubheadJoin(mda);
+
+            return FieldItem;
+
+        }
+
+        //getting list of subhead
+        public IList<Item> GetSubheadJoin(string mdaid)
+        {
+            IList<Item> result = new List<Item>();
+            //var mdaList = db.mdas.Where(o=>o.MDA_ID == mdaid).ToList();
+            //var revenueList = db.revenueheads.ToList();
+            //var subheadList = db.subheads.ToList();
+
+            var subhead = (from m in db.revenueheads
+                             join s in db.subheads on m.ID equals s.RevHead_ID
+                           where m.MDA_ID == mdaid
+                           select s);
+
+            foreach (var item in subhead)
+            {
+                Item ItemParam = new Item();
+
+                ItemParam.Name = item.SubHead_Name;
+                ItemParam.value = item.SubHead_ID;
+
+                result.Add(ItemParam);
+            }
+
+            return result;
         }
     }
 }
