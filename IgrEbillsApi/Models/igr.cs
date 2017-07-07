@@ -14,6 +14,12 @@ namespace IgrEbillsApi.Models
     
     public partial class igr
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public igr()
+        {
+            this.tins = new HashSet<tin>();
+        }
+    
         public string IGR_Code { get; set; }
         public string IGR_Name { get; set; }
         public string Logo { get; set; }
@@ -22,5 +28,8 @@ namespace IgrEbillsApi.Models
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<System.DateTime> DateUpdated { get; set; }
         public Nullable<int> Id { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tin> tins { get; set; }
     }
 }

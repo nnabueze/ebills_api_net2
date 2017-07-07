@@ -23,6 +23,7 @@ namespace IgrEbillsApi.Controllers
         private string tin;
         private string remittance;
         private string Invoice;
+        
 
         Utility utility;
 
@@ -47,11 +48,11 @@ namespace IgrEbillsApi.Controllers
 
             //checking if the product is non-tax
             if (vResponse.ProductName.Equals("Non-Tax"))
-                return GetNonTax(vResponse);
+                  return GetNonTax(vResponse);
 
             //check if product is tax
-            //if (vResponse.ProductName.Equals("Tax"))
-            //    return GetTax(vResponse);
+            if (vResponse.ProductName.Equals("Tax"))
+                return GetTax(vResponse);
 
             //check if product is remittance
             //if (vResponse.ProductName.Equals("Remittance"))
@@ -62,8 +63,8 @@ namespace IgrEbillsApi.Controllers
             //    return GetInvoice(vResponse);
 
             //check if product is refcode
-            //if ()
-            //sResponse = GetNonTax();
+            if (vResponse.ProductName.Equals("refcode"))
+                  return RefCode();
 
             return GetHttpMsg("ProductName paramter missing");
         }
@@ -98,19 +99,84 @@ namespace IgrEbillsApi.Controllers
             }
 
             //checking if step is 3
-            //if (vResponse.Step.Equals(3))
-            //{
-            //    if (string.IsNullOrEmpty(amount))
-            //    {
-            //        return GetHttpMsg(vResponse, "Amount field can not be empty");
-            //    }
+            if (vResponse.Step.Equals(3))
+            {
+                if (string.IsNullOrEmpty(amount))
+                {
+                    return GetHttpMsg("Amount field can not be empty");
+                }
 
-            //    sResponse = utility.GetResponse(vResponse, 4);
-            //}
+                sResponse = utility.GetResponse(4);
+            }
 
             return GetHttpMsg();
 
         }
+
+
+        private HttpResponseMessage GetTax(ValidationRequest vResponse)
+        {
+            ParamToArray(vResponse.Param);
+
+            //checking if step is 1
+            if (vResponse.Step.Equals(1))
+            {
+                if (string.IsNullOrEmpty(tin))
+                {
+                    return GetHttpMsg("Tin field can not be empty");
+                }
+
+                var Tin_verify = utility.TinVerify(tin, ercasBillerId);
+                if (Tin_verify != null)
+                {
+                    sResponse = utility.GetTinResponse(2,tin, ercasBillerId);
+                }
+                else
+                {
+                    return GetHttpMsg("Invalid Tin Number");
+                }
+            }
+
+            //check if the step 2
+            //if (vResponse.Step.Equals(2))
+            //{
+            //    if (string.IsNullOrEmpty(mda))
+            //    {
+            //        return GetHttpMsg(vResponse, "Select an MDA");
+            //    }
+
+            //    sResponse = utility.GetSubheadResponse(vResponse, 3, mda);
+
+            //}
+
+            //check if the step3
+            //if (vResponse.Step.Equals(3))
+            //{
+            //    if (string.IsNullOrEmpty(amount))
+            //    {
+            //        return GetHttpMsg(vResponse, "Amonut field can not be empty");
+            //    }
+
+            //    sResponse = utility.GetResponse(vResponse, 4);
+
+            //}
+
+            return GetHttpMsg();
+        }
+
+        //creating a refcode
+        private HttpResponseMessage RefCode()
+        {
+            tin tin = utility.tinCode();
+            if (tin == null)
+            {
+                return GetHttpMsg("Unable to create tin.");
+            }
+
+            return GetHttpMsg();
+        }
+
+        //
 
 
 

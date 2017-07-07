@@ -126,6 +126,42 @@
     <Property Name="ModifiedDate" Type="datetime" Precision="0" />
     <Property Name="Taxable" Type="bit" />
   </EntityType>
+  <EntityType Name="tins">
+    <Key>
+      <PropertyRef Name="tin_id" />
+    </Key>
+    <Property Name="tin_id" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
+    <Property Name="email" Type="varchar" MaxLength="200" />
+    <Property Name="address" Type="text" />
+    <Property Name="IGR_Code" Type="varchar" MaxLength="38" />
+    <Property Name="tin_no" Type="varchar" MaxLength="200" />
+    <Property Name="temporary_tin" Type="varchar" MaxLength="200" />
+    <Property Name="phone" Type="varchar" MaxLength="200" />
+    <Property Name="nationality" Type="varchar" MaxLength="100" />
+    <Property Name="identification" Type="varchar" MaxLength="200" />
+    <Property Name="bussiness_type" Type="varchar" MaxLength="200" />
+    <Property Name="bussinesss_name" Type="varchar" MaxLength="200" />
+    <Property Name="bussiness_address" Type="varchar" MaxLength="200" />
+    <Property Name="bussiness_no" Type="varchar" MaxLength="200" />
+    <Property Name="reg_bus_name" Type="varchar" MaxLength="200" />
+    <Property Name="commencement_date" Type="datetime" Precision="0" />
+    <Property Name="tin_type" Type="enum" />
+    <Property Name="create_at" Type="datetime" Precision="0" />
+    <Property Name="updated_at" Type="datetime" Precision="0" />
+  </EntityType>
+  <Association Name="tins_ibfk_1">
+    <End Role="igr" Type="Self.igr" Multiplicity="0..1" />
+    <End Role="tins" Type="Self.tins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="tins">
+        <PropertyRef Name="IGR_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="igrdbModelStoreContainer">
     <EntitySet Name="beneficiaries" EntityType="Self.beneficiaries" Schema="igrdb" store:Type="Tables" />
     <EntitySet Name="igr" EntityType="Self.igr" Schema="igrdb" store:Type="Tables" />
@@ -136,5 +172,10 @@
     <EntitySet Name="reportslisting" EntityType="Self.reportslisting" Schema="igrdb" store:Type="Tables" />
     <EntitySet Name="revenueheads" EntityType="Self.revenueheads" Schema="igrdb" store:Type="Tables" />
     <EntitySet Name="subheads" EntityType="Self.subheads" Schema="igrdb" store:Type="Tables" />
+    <EntitySet Name="tins" EntityType="Self.tins" Schema="igrdb" store:Type="Tables" />
+    <AssociationSet Name="tins_ibfk_1" Association="Self.tins_ibfk_1">
+      <End Role="igr" EntitySet="igr" />
+      <End Role="tins" EntitySet="tins" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -13,10 +13,10 @@ namespace IgrEbillsApi.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class igrdbEntities4 : DbContext
+    public partial class igrdbEntities5 : DbContext
     {
-        public igrdbEntities4()
-            : base("name=igrdbEntities4")
+        public igrdbEntities5()
+            : base("name=igrdbEntities5")
         {
         }
     
@@ -34,5 +34,6 @@ namespace IgrEbillsApi.Models
         public virtual DbSet<reportslisting> reportslistings { get; set; }
         public virtual DbSet<revenuehead> revenueheads { get; set; }
         public virtual DbSet<subhead> subheads { get; set; }
+        public virtual DbSet<tin> tins { get; set; }
     }
 }

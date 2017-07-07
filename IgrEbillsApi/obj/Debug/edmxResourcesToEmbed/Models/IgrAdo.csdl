@@ -27,6 +27,7 @@
     <Property Name="DateCreated" Type="DateTime" />
     <Property Name="DateUpdated" Type="DateTime" />
     <Property Name="Id" Type="Int32" />
+    <NavigationProperty Name="tins" Relationship="Self.tins_ibfk_1" FromRole="igr" ToRole="tins" />
   </EntityType>
   <EntityType Name="mda">
     <Key>
@@ -126,7 +127,44 @@
     <Property Name="ModifiedDate" Type="DateTime" />
     <Property Name="Taxable" Type="Boolean" />
   </EntityType>
-  <EntityContainer Name="igrdbEntities4" annotation:LazyLoadingEnabled="true">
+  <EntityType Name="tin">
+    <Key>
+      <PropertyRef Name="tin_id" />
+    </Key>
+    <Property Name="tin_id" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="IGR_Code" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="tin_no" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="temporary_tin" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="identification" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="bussiness_type" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="bussinesss_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="bussiness_address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="bussiness_no" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="reg_bus_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="commencement_date" Type="DateTime" />
+    <Property Name="tin_type" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="create_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <NavigationProperty Name="igr" Relationship="Self.tins_ibfk_1" FromRole="tins" ToRole="igr" />
+  </EntityType>
+  <Association Name="tins_ibfk_1">
+    <End Role="igr" Type="Self.igr" Multiplicity="0..1" />
+    <End Role="tins" Type="Self.tin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="tins">
+        <PropertyRef Name="IGR_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="igrdbEntities5" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="beneficiaries" EntityType="Self.beneficiary" />
     <EntitySet Name="igrs" EntityType="Self.igr" />
     <EntitySet Name="mdas" EntityType="Self.mda" />
@@ -136,5 +174,10 @@
     <EntitySet Name="reportslistings" EntityType="Self.reportslisting" />
     <EntitySet Name="revenueheads" EntityType="Self.revenuehead" />
     <EntitySet Name="subheads" EntityType="Self.subhead" />
+    <EntitySet Name="tins" EntityType="Self.tin" />
+    <AssociationSet Name="tins_ibfk_1" Association="Self.tins_ibfk_1">
+      <End Role="igr" EntitySet="igrs" />
+      <End Role="tins" EntitySet="tins" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

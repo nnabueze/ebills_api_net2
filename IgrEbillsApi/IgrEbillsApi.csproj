@@ -190,6 +190,9 @@
     <Compile Include="Models\subhead.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tin.cs">
+      <DependentUpon>IgrAdo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Utility.cs" />
     <Compile Include="Models\ValidationRequest.cs" />
     <Compile Include="Models\ValidationResponse.cs" />

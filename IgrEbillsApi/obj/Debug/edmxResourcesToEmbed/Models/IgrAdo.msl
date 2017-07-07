@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="igrdbModelStoreContainer" CdmEntityContainer="igrdbEntities4">
+  <EntityContainerMapping StorageEntityContainer="igrdbModelStoreContainer" CdmEntityContainer="igrdbEntities5">
     <EntitySetMapping Name="beneficiaries">
       <EntityTypeMapping TypeName="igrdbModel.beneficiary">
         <MappingFragment StoreEntitySet="beneficiaries">
@@ -133,6 +133,31 @@
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
           <ScalarProperty Name="Taxable" ColumnName="Taxable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tins">
+      <EntityTypeMapping TypeName="igrdbModel.tin">
+        <MappingFragment StoreEntitySet="tins">
+          <ScalarProperty Name="tin_id" ColumnName="tin_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="IGR_Code" ColumnName="IGR_Code" />
+          <ScalarProperty Name="tin_no" ColumnName="tin_no" />
+          <ScalarProperty Name="temporary_tin" ColumnName="temporary_tin" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="nationality" ColumnName="nationality" />
+          <ScalarProperty Name="identification" ColumnName="identification" />
+          <ScalarProperty Name="bussiness_type" ColumnName="bussiness_type" />
+          <ScalarProperty Name="bussinesss_name" ColumnName="bussinesss_name" />
+          <ScalarProperty Name="bussiness_address" ColumnName="bussiness_address" />
+          <ScalarProperty Name="bussiness_no" ColumnName="bussiness_no" />
+          <ScalarProperty Name="reg_bus_name" ColumnName="reg_bus_name" />
+          <ScalarProperty Name="commencement_date" ColumnName="commencement_date" />
+          <ScalarProperty Name="tin_type" ColumnName="tin_type" />
+          <ScalarProperty Name="create_at" ColumnName="create_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
