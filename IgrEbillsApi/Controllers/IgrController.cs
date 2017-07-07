@@ -59,8 +59,8 @@ namespace IgrEbillsApi.Controllers
                 return GetRemittance(vResponse);
 
             //check if product is invoice
-            //if (vResponse.ProductName.Equals("Invoice"))
-            //    return GetInvoice(vResponse);
+            if (vResponse.ProductName.Equals("Invoice"))
+                return GetInvoice(vResponse);
 
             //check if product is refcode
             if (vResponse.ProductName.Equals("refcode"))
@@ -184,6 +184,26 @@ namespace IgrEbillsApi.Controllers
             return GetHttpMsg();
         }
 
+
+        private HttpResponseMessage GetInvoice(ValidationRequest vResponse)
+        {
+            ParamToArray(vResponse.Param);
+
+            if (string.IsNullOrEmpty(Invoice))
+            {
+                return GetHttpMsg("Invoice field can not be empty");
+            }
+
+            var VerifyRemittance = utility.GetInvoiceParam(Invoice, ercasBillerId);
+
+            if (VerifyRemittance == null)
+            {
+                return GetHttpMsg("Invalid Invoice Number");
+            }
+            sResponse = utility.GetInvoiceResponse(vResponse, 2, Invoice, ercasBillerId);
+
+            return GetHttpMsg();
+        }
 
         //creating a refcode
         private HttpResponseMessage RefCode()

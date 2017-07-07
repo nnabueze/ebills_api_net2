@@ -43,6 +43,7 @@
     <Property Name="DateCreated" Type="DateTime" />
     <Property Name="DateUpdated" Type="DateTime" />
     <NavigationProperty Name="remittances" Relationship="igrdbModel.remittances_ibfk_1" FromRole="mda" ToRole="remittance" />
+    <NavigationProperty Name="invoices" Relationship="igrdbModel.invoices_ibfk_1" FromRole="mda" ToRole="invoice" />
   </EntityType>
   <EntityType Name="mda_category">
     <Key>
@@ -185,6 +186,11 @@
       <End Role="mda" EntitySet="mdas" />
       <End Role="remittance" EntitySet="remittances" />
     </AssociationSet>
+    <EntitySet Name="invoices" EntityType="igrdbModel.invoice" />
+    <AssociationSet Name="invoices_ibfk_1" Association="igrdbModel.invoices_ibfk_1">
+      <End Role="mda" EntitySet="mdas" />
+      <End Role="invoice" EntitySet="invoices" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="remittance">
     <Key>
@@ -207,6 +213,33 @@
         <PropertyRef Name="MDA_ID" />
       </Principal>
       <Dependent Role="remittance">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="invoice">
+    <Key>
+      <PropertyRef Name="invoice_id" />
+    </Key>
+    <Property Name="invoice_id" Type="String" Nullable="false" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Decimal" />
+    <Property Name="invoice_status" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="create_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <NavigationProperty Name="mda" Relationship="igrdbModel.invoices_ibfk_1" FromRole="invoice" ToRole="mda" />
+  </EntityType>
+  <Association Name="invoices_ibfk_1">
+    <End Type="igrdbModel.mda" Role="mda" Multiplicity="0..1" />
+    <End Type="igrdbModel.invoice" Role="invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="invoice">
         <PropertyRef Name="MDA_ID" />
       </Dependent>
     </ReferentialConstraint>
