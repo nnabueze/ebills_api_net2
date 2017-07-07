@@ -138,31 +138,33 @@ namespace IgrEbillsApi.Controllers
             }
 
             //check if the step 2
-            //if (vResponse.Step.Equals(2))
-            //{
-            //    if (string.IsNullOrEmpty(mda))
-            //    {
-            //        return GetHttpMsg(vResponse, "Select an MDA");
-            //    }
+            if (vResponse.Step.Equals(2))
+            {
+                if (string.IsNullOrEmpty(mda))
+                {
+                    return GetHttpMsg("Select an MDA");
+                }
 
-            //    sResponse = utility.GetSubheadResponse(vResponse, 3, mda);
+                sResponse = utility.GetSubheadResponse(3, mda);
 
-            //}
+            }
 
             //check if the step3
-            //if (vResponse.Step.Equals(3))
-            //{
-            //    if (string.IsNullOrEmpty(amount))
-            //    {
-            //        return GetHttpMsg(vResponse, "Amonut field can not be empty");
-            //    }
+            if (vResponse.Step.Equals(3))
+            {
+                if (string.IsNullOrEmpty(amount))
+                {
+                    return GetHttpMsg("Amonut field can not be empty");
+                }
 
-            //    sResponse = utility.GetResponse(vResponse, 4);
+                sResponse = utility.GetResponse(4);
 
-            //}
+            }
 
             return GetHttpMsg();
         }
+
+
 
         //creating a refcode
         private HttpResponseMessage RefCode()

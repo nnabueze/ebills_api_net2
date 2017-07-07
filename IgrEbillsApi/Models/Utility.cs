@@ -149,7 +149,7 @@ namespace IgrEbillsApi.Models
         {
             IList<Param> Result = new List<Param>();
 
-            var tinDetails = db.tins.Where(o=>o.tin_no==tin).Where(o=>o.tin_id==tin).FirstOrDefault();
+            var tinDetails = db.tins.Where(o=>o.tin_no==tin || o.temporary_tin == tin).FirstOrDefault();
 
             if (tinDetails != null)
             {
