@@ -55,8 +55,8 @@ namespace IgrEbillsApi.Controllers
                 return GetTax(vResponse);
 
             //check if product is remittance
-            //if (vResponse.ProductName.Equals("Remittance"))
-            //    return GetRemittance(vResponse);
+            if (vResponse.ProductName.Equals("Remittance"))
+                return GetRemittance(vResponse);
 
             //check if product is invoice
             //if (vResponse.ProductName.Equals("Invoice"))
@@ -164,6 +164,25 @@ namespace IgrEbillsApi.Controllers
             return GetHttpMsg();
         }
 
+        private HttpResponseMessage GetRemittance(ValidationRequest vResponse)
+        {
+            ParamToArray(vResponse.Param);
+
+            if (string.IsNullOrEmpty(remittance))
+            {
+                return GetHttpMsg("Remittance field can not be empty");
+            }
+
+            var VerifyRemittance = utility.GetRemittanceParam(remittance, ercasBillerId);
+
+            if (VerifyRemittance == null)
+            {
+                return GetHttpMsg("Invalid Remittance Number");
+            }
+            sResponse = utility.GetRemittanceResponse(vResponse, 2, remittance, ercasBillerId);
+
+            return GetHttpMsg();
+        }
 
 
         //creating a refcode

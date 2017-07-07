@@ -81,6 +81,18 @@
     <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
     <Property Name="ModifiedDate" Type="datetime" Precision="0" />
   </EntityType>
+  <EntityType Name="remittances">
+    <Key>
+      <PropertyRef Name="remittance_id" />
+    </Key>
+    <Property Name="remittance_id" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="remittance_status" Type="enum" />
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" />
+    <Property Name="remtted_date" Type="datetime" Precision="0" />
+    <Property Name="create_at" Type="datetime" Precision="0" />
+    <Property Name="updated_at" Type="datetime" Precision="0" />
+  </EntityType>
   <EntityType Name="reportslisting">
     <Key>
       <PropertyRef Name="listing_ID" />
@@ -150,6 +162,18 @@
     <Property Name="create_at" Type="datetime" Precision="0" />
     <Property Name="updated_at" Type="datetime" Precision="0" />
   </EntityType>
+  <Association Name="remittances_ibfk_1">
+    <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
+    <End Role="remittances" Type="Self.remittances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="remittances">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="tins_ibfk_1">
     <End Role="igr" Type="Self.igr" Multiplicity="0..1" />
     <End Role="tins" Type="Self.tins" Multiplicity="*" />
@@ -169,10 +193,15 @@
     <EntitySet Name="mda_category" EntityType="Self.mda_category" Schema="igrdb" store:Type="Tables" />
     <EntitySet Name="mda_stations" EntityType="Self.mda_stations" Schema="igrdb" store:Type="Tables" />
     <EntitySet Name="pos" EntityType="Self.pos" Schema="igrdb" store:Type="Tables" />
+    <EntitySet Name="remittances" EntityType="Self.remittances" Schema="igrdb" store:Type="Tables" />
     <EntitySet Name="reportslisting" EntityType="Self.reportslisting" Schema="igrdb" store:Type="Tables" />
     <EntitySet Name="revenueheads" EntityType="Self.revenueheads" Schema="igrdb" store:Type="Tables" />
     <EntitySet Name="subheads" EntityType="Self.subheads" Schema="igrdb" store:Type="Tables" />
     <EntitySet Name="tins" EntityType="Self.tins" Schema="igrdb" store:Type="Tables" />
+    <AssociationSet Name="remittances_ibfk_1" Association="Self.remittances_ibfk_1">
+      <End Role="mda" EntitySet="mda" />
+      <End Role="remittances" EntitySet="remittances" />
+    </AssociationSet>
     <AssociationSet Name="tins_ibfk_1" Association="Self.tins_ibfk_1">
       <End Role="igr" EntitySet="igr" />
       <End Role="tins" EntitySet="tins" />

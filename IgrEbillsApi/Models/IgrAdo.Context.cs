@@ -35,5 +35,6 @@ namespace IgrEbillsApi.Models
         public virtual DbSet<revenuehead> revenueheads { get; set; }
         public virtual DbSet<subhead> subheads { get; set; }
         public virtual DbSet<tin> tins { get; set; }
+        public virtual DbSet<remittance> remittances { get; set; }
     }
 }

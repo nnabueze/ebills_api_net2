@@ -181,6 +181,9 @@
     <Compile Include="Models\pos.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\remittance.cs">
+      <DependentUpon>IgrAdo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\reportslisting.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>
     </Compile>

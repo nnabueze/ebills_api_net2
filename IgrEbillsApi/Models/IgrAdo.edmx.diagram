@@ -16,6 +16,8 @@
         <EntityTypeShape EntityType="igrdbModel.subhead" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="igrdbModel.tin" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="igrdbModel.tins_ibfk_1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="igrdbModel.remittance" Width="1.5" PointX="8" PointY="13" />
+        <AssociationConnector Association="igrdbModel.remittances_ibfk_1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

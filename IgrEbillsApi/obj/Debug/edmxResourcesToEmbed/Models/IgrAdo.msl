@@ -161,5 +161,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="remittances">
+      <EntityTypeMapping TypeName="igrdbModel.remittance">
+        <MappingFragment StoreEntitySet="remittances">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="create_at" ColumnName="create_at" />
+          <ScalarProperty Name="remtted_date" ColumnName="remtted_date" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="remittance_status" ColumnName="remittance_status" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="remittance_id" ColumnName="remittance_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

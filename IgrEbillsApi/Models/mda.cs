@@ -14,6 +14,12 @@ namespace IgrEbillsApi.Models
     
     public partial class mda
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public mda()
+        {
+            this.remittances = new HashSet<remittance>();
+        }
+    
         public string MDA_ID { get; set; }
         public string IGR_ID { get; set; }
         public string MDA_Category { get; set; }
@@ -23,5 +29,8 @@ namespace IgrEbillsApi.Models
         public string ModifiedBy { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<System.DateTime> DateUpdated { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<remittance> remittances { get; set; }
     }
 }

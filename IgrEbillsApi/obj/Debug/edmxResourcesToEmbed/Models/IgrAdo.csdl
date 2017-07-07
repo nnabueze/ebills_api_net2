@@ -42,6 +42,7 @@
     <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="DateCreated" Type="DateTime" />
     <Property Name="DateUpdated" Type="DateTime" />
+    <NavigationProperty Name="remittances" Relationship="igrdbModel.remittances_ibfk_1" FromRole="mda" ToRole="remittance" />
   </EntityType>
   <EntityType Name="mda_category">
     <Key>
@@ -179,5 +180,35 @@
       <End Role="igr" EntitySet="igrs" />
       <End Role="tins" EntitySet="tins" />
     </AssociationSet>
+    <EntitySet Name="remittances" EntityType="igrdbModel.remittance" />
+    <AssociationSet Name="remittances_ibfk_1" Association="igrdbModel.remittances_ibfk_1">
+      <End Role="mda" EntitySet="mdas" />
+      <End Role="remittance" EntitySet="remittances" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="remittance">
+    <Key>
+      <PropertyRef Name="remittance_id" />
+    </Key>
+    <Property Name="remittance_id" Type="String" Nullable="false" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Decimal" />
+    <Property Name="remittance_status" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="remtted_date" Type="DateTime" />
+    <Property Name="create_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <NavigationProperty Name="mda" Relationship="igrdbModel.remittances_ibfk_1" FromRole="remittance" ToRole="mda" />
+  </EntityType>
+  <Association Name="remittances_ibfk_1">
+    <End Type="igrdbModel.mda" Role="mda" Multiplicity="0..1" />
+    <End Type="igrdbModel.remittance" Role="remittance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="remittance">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

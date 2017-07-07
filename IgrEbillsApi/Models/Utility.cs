@@ -144,6 +144,51 @@ namespace IgrEbillsApi.Models
             return sResponse;
         }
 
+        public ValidationResponse GetRemittanceResponse(ValidationRequest vResponse, int num, string remittanceid, string billerid)
+        {
+            sResponse.BillerName = vResponse.BillerName;
+            sResponse.BillerID = vResponse.BillerID;
+            sResponse.ProductName = vResponse.ProductName;
+            sResponse.NextStep = num;
+            sResponse.ResponseCode = "00";
+            sResponse.ResponseMessage = "Successful";
+
+            
+            sResponse.Param = GetRemittanceParam(remittanceid, billerid);
+
+            return sResponse;
+        }
+
+        //getting remittance param
+        public IList<Param> GetRemittanceParam(string remittanceid, string biller)
+        {
+            remittance rem = db.remittances.Where(o => o.remittance_id == remittanceid).FirstOrDefault();
+            Dictionary<string, string> remittance_array = new Dictionary<string, string>();
+
+            if (rem == null)
+            {
+                return null;
+            }
+
+            remittance_array.Add("mda_key", rem.MDA_ID);
+            remittance_array.Add("Remittance", rem.remittance_id);
+            remittance_array.Add("amount", rem.amount.ToString());
+            remittance_array.Add("ercasBillerId", biller);
+
+            IList<Param> remittance_list = new List<Param>();
+
+            foreach (var item in remittance_array)
+            {
+                Param p = new Param();
+                p.key = item.Key;
+                p.value = item.Value;
+
+                remittance_list.Add(p);
+            }
+
+            return remittance_list;
+        }
+
         //getting tin verification
         public IList<Param> TinVerify(string tin, string billerid)
         {
