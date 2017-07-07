@@ -167,9 +167,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>IgrAdo.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\invoice.cs">
-      <DependentUpon>IgrAdo.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\mda.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>
