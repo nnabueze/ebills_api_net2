@@ -185,6 +185,27 @@ namespace IgrEbillsApi.Controllers
         }
 
 
+        private HttpResponseMessage GetInvoice(ValidationRequest vResponse)
+        {
+            ParamToArray(vResponse.Param);
+
+            if (string.IsNullOrEmpty(Invoice))
+            {
+                return GetHttpMsg("Invoice field can not be empty");
+            }
+
+            var VerifyInvoice = utility.GetInvoiceParam(Invoice, ercasBillerId);
+
+            if (VerifyInvoice == null)
+            {
+                return GetHttpMsg("Invalid Invoice Number");
+            }
+            sResponse = utility.GetInvoiceResponse(2, Invoice, ercasBillerId);
+
+            return GetHttpMsg();
+        }
+
+
         //creating a refcode
         private HttpResponseMessage RefCode()
         {

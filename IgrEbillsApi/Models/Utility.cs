@@ -189,6 +189,53 @@ namespace IgrEbillsApi.Models
             return remittance_list;
         }
 
+        public ValidationResponse GetInvoiceResponse(int num, string invoiceid, string billerid)
+        {
+            sResponse.BillerName = vResponse.BillerName;
+            sResponse.BillerID = vResponse.BillerID;
+            sResponse.ProductName = vResponse.ProductName;
+            sResponse.NextStep = num;
+            sResponse.ResponseCode = "00";
+            sResponse.ResponseMessage = "Successful";
+
+            sResponse.Param = GetInvoiceParam(invoiceid, billerid);
+
+
+
+            return sResponse;
+        }
+
+        public IList<Param> GetInvoiceParam(string invoiceid, string biller)
+        {
+            invoice rem = db.invoices.Where(o => o.invoice_id == invoiceid).FirstOrDefault();
+            Dictionary<string, string> invoice_array = new Dictionary<string, string>();
+
+            if (rem == null)
+            {
+                return null;
+            }
+
+            invoice_array.Add("mda_key", rem.MDA_ID);
+            invoice_array.Add("Invoice", rem.invoice_id);
+            invoice_array.Add("name", rem.name);
+            invoice_array.Add("phone", rem.phone);
+            invoice_array.Add("amount", rem.amount.ToString());
+            invoice_array.Add("ercasBillerId", biller);
+
+            IList<Param> invoice_list = new List<Param>();
+
+            foreach (var item in invoice_array)
+            {
+                Param p = new Param();
+                p.key = item.Key;
+                p.value = item.Value;
+
+                invoice_list.Add(p);
+            }
+
+            return invoice_list;
+        }
+
         //getting tin verification
         public IList<Param> TinVerify(string tin, string billerid)
         {
@@ -286,6 +333,8 @@ namespace IgrEbillsApi.Models
             tinParam.email = email;
 
             var tinRecord = db.tins.Add(tinParam);
+
+            db.SaveChanges();
 
             Console.WriteLine(tinRecord);
 
