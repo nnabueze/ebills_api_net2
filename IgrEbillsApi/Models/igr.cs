@@ -18,6 +18,7 @@ namespace IgrEbillsApi.Models
         public igr()
         {
             this.tins = new HashSet<tin>();
+            this.notifications = new HashSet<notification>();
         }
     
         public string IGR_Code { get; set; }
@@ -31,5 +32,7 @@ namespace IgrEbillsApi.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tin> tins { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<notification> notifications { get; set; }
     }
 }

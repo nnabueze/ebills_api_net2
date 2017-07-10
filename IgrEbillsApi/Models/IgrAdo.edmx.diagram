@@ -20,6 +20,10 @@
         <AssociationConnector Association="igrdbModel.remittances_ibfk_1" />
         <EntityTypeShape EntityType="igrdbModel.invoice" Width="1.5" PointX="8" PointY="16.875" />
         <AssociationConnector Association="igrdbModel.invoices_ibfk_1" />
+        <EntityTypeShape EntityType="igrdbModel.notification" Width="1.5" PointX="10" PointY="4.75" />
+        <AssociationConnector Association="igrdbModel.notification_ibfk_2" />
+        <AssociationConnector Association="igrdbModel.notification_ibfk_1" />
+        <AssociationConnector Association="igrdbModel.notification_ibfk_3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

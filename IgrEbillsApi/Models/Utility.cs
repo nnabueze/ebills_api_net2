@@ -23,6 +23,11 @@ namespace IgrEbillsApi.Models
             vResponse = xRequest;
         }
 
+        public Utility()
+        {
+
+        }
+
         //priavte class to get response
         public ValidationResponse GetMdaResponse(int num, string billerid)
         {
@@ -295,6 +300,16 @@ namespace IgrEbillsApi.Models
             sResponse.field = GetMdaField(billerid);
 
             return sResponse;
+        }
+
+        //inserting notification
+        public notification InsertNotification(notification notify)
+        {
+            var notifyResponse = db.notifications.Add(notify);
+
+            db.SaveChanges();
+
+            return notifyResponse;
         }
 
         public tin tinCode()

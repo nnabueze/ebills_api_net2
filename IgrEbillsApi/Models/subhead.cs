@@ -14,6 +14,12 @@ namespace IgrEbillsApi.Models
     
     public partial class subhead
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public subhead()
+        {
+            this.notifications = new HashSet<notification>();
+        }
+    
         public string SubHead_ID { get; set; }
         public string SubHead_Code { get; set; }
         public string RevHead_ID { get; set; }
@@ -26,5 +32,8 @@ namespace IgrEbillsApi.Models
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public Nullable<bool> Taxable { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<notification> notifications { get; set; }
     }
 }

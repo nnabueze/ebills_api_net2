@@ -142,6 +142,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\IgrController.cs" />
+    <Compile Include="Controllers\IgrNotificationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -167,6 +168,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>IgrAdo.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\invoice.cs">
+      <DependentUpon>IgrAdo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\mda.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>
@@ -177,6 +181,7 @@
     <Compile Include="Models\mda_stations.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NotificationRequest.cs" />
     <Compile Include="Models\Param.cs" />
     <Compile Include="Models\pos.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>

@@ -37,5 +37,6 @@ namespace IgrEbillsApi.Models
         public virtual DbSet<tin> tins { get; set; }
         public virtual DbSet<remittance> remittances { get; set; }
         public virtual DbSet<invoice> invoices { get; set; }
+        public virtual DbSet<notification> notifications { get; set; }
     }
 }
