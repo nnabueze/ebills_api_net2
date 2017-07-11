@@ -123,16 +123,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Models\IgrAdo.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>IgrAdo.edmx</DependentUpon>
-      <LastGenOutput>IgrAdo.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\IgrAdo.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>IgrAdo.edmx</DependentUpon>
-      <LastGenOutput>IgrAdo.cs</LastGenOutput>
-    </Content>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config">
@@ -146,63 +136,34 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\beneficiary.cs">
-      <DependentUpon>IgrAdo.tt</DependentUpon>
+    <Compile Include="Migrations\201707111132244_initialMigration.cs" />
+    <Compile Include="Migrations\201707111132244_initialMigration.Designer.cs">
+      <DependentUpon>201707111132244_initialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707111453478_removeNotificationRelationship.cs" />
+    <Compile Include="Migrations\201707111453478_removeNotificationRelationship.Designer.cs">
+      <DependentUpon>201707111453478_removeNotificationRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\beneficiary.cs" />
     <Compile Include="Models\Field.cs" />
-    <Compile Include="Models\igr.cs">
-      <DependentUpon>IgrAdo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\IgrAdo.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IgrAdo.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\IgrAdo.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IgrAdo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\IgrAdo.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IgrAdo.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\invoice.cs">
-      <DependentUpon>IgrAdo.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\igr.cs" />
+    <Compile Include="Models\IgrAdo.cs" />
+    <Compile Include="Models\invoice.cs" />
     <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\mda.cs">
-      <DependentUpon>IgrAdo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\mda_category.cs">
-      <DependentUpon>IgrAdo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\mda_stations.cs">
-      <DependentUpon>IgrAdo.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\mda.cs" />
+    <Compile Include="Models\mda_category.cs" />
+    <Compile Include="Models\mda_stations.cs" />
     <Compile Include="Models\notification.cs" />
     <Compile Include="Models\NotificationRequest.cs" />
     <Compile Include="Models\NotificationResponse.cs" />
     <Compile Include="Models\Param.cs" />
-    <Compile Include="Models\pos.cs">
-      <DependentUpon>IgrAdo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\remittance.cs">
-      <DependentUpon>IgrAdo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\reportslisting.cs">
-      <DependentUpon>IgrAdo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\revenuehead.cs">
-      <DependentUpon>IgrAdo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\subhead.cs">
-      <DependentUpon>IgrAdo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tin.cs">
-      <DependentUpon>IgrAdo.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\pos.cs" />
+    <Compile Include="Models\remittance.cs" />
+    <Compile Include="Models\reportslisting.cs" />
+    <Compile Include="Models\revenuehead.cs" />
+    <Compile Include="Models\subhead.cs" />
+    <Compile Include="Models\tin.cs" />
     <Compile Include="Models\Utility.cs" />
     <Compile Include="Models\ValidationRequest.cs" />
     <Compile Include="Models\ValidationResponse.cs" />
@@ -212,13 +173,6 @@
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\IgrAdo.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>IgrAdo.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\IgrAdo.edmx.diagram">
-      <DependentUpon>IgrAdo.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -232,6 +186,14 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201707111132244_initialMigration.resx">
+      <DependentUpon>201707111132244_initialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707111453478_removeNotificationRelationship.resx">
+      <DependentUpon>201707111453478_removeNotificationRelationship.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

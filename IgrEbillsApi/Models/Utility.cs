@@ -16,7 +16,7 @@ namespace IgrEbillsApi.Models
         private string address;
         private string email;
 
-        private igrdbEntities5 db = new igrdbEntities5();
+        private IgrAdo db = new IgrAdo();
 
         public Utility(ValidationRequest xRequest)
         {
