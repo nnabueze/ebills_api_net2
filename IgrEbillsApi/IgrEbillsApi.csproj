@@ -181,7 +181,9 @@
     <Compile Include="Models\mda_stations.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\notification.cs" />
     <Compile Include="Models\NotificationRequest.cs" />
+    <Compile Include="Models\NotificationResponse.cs" />
     <Compile Include="Models\Param.cs" />
     <Compile Include="Models\pos.cs">
       <DependentUpon>IgrAdo.tt</DependentUpon>

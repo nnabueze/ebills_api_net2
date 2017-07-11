@@ -28,6 +28,7 @@
     <Property Name="DateUpdated" Type="DateTime" />
     <Property Name="Id" Type="Int32" />
     <NavigationProperty Name="tins" Relationship="Self.tins_ibfk_1" FromRole="igr" ToRole="tins" />
+    <NavigationProperty Name="notifications" Relationship="igrdbModel.notification_ibfk_2" FromRole="igr" ToRole="notification" />
   </EntityType>
   <EntityType Name="mda">
     <Key>
@@ -44,6 +45,7 @@
     <Property Name="DateUpdated" Type="DateTime" />
     <NavigationProperty Name="remittances" Relationship="igrdbModel.remittances_ibfk_1" FromRole="mda" ToRole="remittance" />
     <NavigationProperty Name="invoices" Relationship="igrdbModel.invoices_ibfk_1" FromRole="mda" ToRole="invoice" />
+    <NavigationProperty Name="notifications" Relationship="igrdbModel.notification_ibfk_1" FromRole="mda" ToRole="notification" />
   </EntityType>
   <EntityType Name="mda_category">
     <Key>
@@ -128,6 +130,7 @@
     <Property Name="CreatedDate" Type="DateTime" />
     <Property Name="ModifiedDate" Type="DateTime" />
     <Property Name="Taxable" Type="Boolean" />
+    <NavigationProperty Name="notifications" Relationship="igrdbModel.notification_ibfk_3" FromRole="subhead" ToRole="notification" />
   </EntityType>
   <EntityType Name="tin">
     <Key>
@@ -191,6 +194,19 @@
       <End Role="mda" EntitySet="mdas" />
       <End Role="invoice" EntitySet="invoices" />
     </AssociationSet>
+    <EntitySet Name="notifications" EntityType="igrdbModel.notification" />
+    <AssociationSet Name="notification_ibfk_2" Association="igrdbModel.notification_ibfk_2">
+      <End Role="igr" EntitySet="igrs" />
+      <End Role="notification" EntitySet="notifications" />
+    </AssociationSet>
+    <AssociationSet Name="notification_ibfk_1" Association="igrdbModel.notification_ibfk_1">
+      <End Role="mda" EntitySet="mdas" />
+      <End Role="notification" EntitySet="notifications" />
+    </AssociationSet>
+    <AssociationSet Name="notification_ibfk_3" Association="igrdbModel.notification_ibfk_3">
+      <End Role="subhead" EntitySet="subheads" />
+      <End Role="notification" EntitySet="notifications" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="remittance">
     <Key>
@@ -241,6 +257,67 @@
       </Principal>
       <Dependent Role="invoice">
         <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="notification">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="sessionID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SourceBankCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DestinationBankCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Decimal" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IGR_Code" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="SubHead_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="productType" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="tin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="remittance_id" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="invoice_id" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="refcode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="create_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <NavigationProperty Name="igr" Relationship="igrdbModel.notification_ibfk_2" FromRole="notification" ToRole="igr" />
+    <NavigationProperty Name="mda" Relationship="igrdbModel.notification_ibfk_1" FromRole="notification" ToRole="mda" />
+    <NavigationProperty Name="subhead" Relationship="igrdbModel.notification_ibfk_3" FromRole="notification" ToRole="subhead" />
+  </EntityType>
+  <Association Name="notification_ibfk_2">
+    <End Type="igrdbModel.igr" Role="igr" Multiplicity="0..1" />
+    <End Type="igrdbModel.notification" Role="notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="notification">
+        <PropertyRef Name="IGR_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="notification_ibfk_1">
+    <End Type="igrdbModel.mda" Role="mda" Multiplicity="0..1" />
+    <End Type="igrdbModel.notification" Role="notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="notification">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="notification_ibfk_3">
+    <End Type="igrdbModel.subhead" Role="subhead" Multiplicity="0..1" />
+    <End Type="igrdbModel.notification" Role="notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subhead">
+        <PropertyRef Name="SubHead_ID" />
+      </Principal>
+      <Dependent Role="notification">
+        <PropertyRef Name="SubHead_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
