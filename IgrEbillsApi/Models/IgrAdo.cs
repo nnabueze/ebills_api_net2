@@ -26,6 +26,13 @@ namespace IgrEbillsApi.Models
         public virtual DbSet<subhead> subheads { get; set; }
         public virtual DbSet<tin> tins { get; set; }
 
+        public virtual DbSet<agent> agents { get; set; }
+        public virtual DbSet<aspnetrole> aspnetroles { get; set; }
+        public virtual DbSet<aspnetuserclaim> aspnetuserclaims { get; set; }
+        public virtual DbSet<aspnetuser> aspnetusers { get; set; }
+        public virtual DbSet<bank> banks { get; set; }
+        public virtual DbSet<aspnetuserlogin> aspnetuserlogins { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<beneficiary>()
