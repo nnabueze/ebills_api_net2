@@ -1,4 +1,4 @@
-namespace IgrEbillsApi.Models.auth
+namespace IgrEbillsApi.Models
 {
     using System;
     using System.Collections.Generic;
