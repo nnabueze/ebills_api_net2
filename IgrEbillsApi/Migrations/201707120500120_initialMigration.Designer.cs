@@ -13,7 +13,7 @@ namespace IgrEbillsApi.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201707111132244_initialMigration"; }
+            get { return "201707120500120_initialMigration"; }
         }
         
         string IMigrationMetadata.Source
