@@ -105,7 +105,6 @@ namespace IgrEbillsApi.Migrations
                     {
                         remittance_id = c.String(nullable: false, maxLength: 38, unicode: false),
                         amount = c.Decimal(precision: 18, scale: 2),
-                        remittance_status = c.String(storeType: "enum"),
                         MDA_ID = c.String(maxLength: 38, unicode: false),
                         remtted_date = c.DateTime(precision: 0),
                         create_at = c.DateTime(precision: 0),

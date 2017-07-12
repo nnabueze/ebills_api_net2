@@ -136,6 +136,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707120500120_initialMigration.cs" />
+    <Compile Include="Migrations\201707120500120_initialMigration.Designer.cs">
+      <DependentUpon>201707120500120_initialMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\beneficiary.cs" />
     <Compile Include="Models\Field.cs" />
@@ -178,6 +182,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201707120500120_initialMigration.resx">
+      <DependentUpon>201707120500120_initialMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
