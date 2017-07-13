@@ -173,4 +173,4 @@ C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\bin\Microsof
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\bin\System.Web.Http.Owin.xml
-C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.testUserTable.resources
+C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.alterUserModex.resources

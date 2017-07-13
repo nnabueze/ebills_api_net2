@@ -185,9 +185,9 @@
     <Compile Include="Migrations\201707121033539_newUserTableRole.Designer.cs">
       <DependentUpon>201707121033539_newUserTableRole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707131158083_testUserTable.cs" />
-    <Compile Include="Migrations\201707131158083_testUserTable.Designer.cs">
-      <DependentUpon>201707131158083_testUserTable.cs</DependentUpon>
+    <Compile Include="Migrations\201707131554422_alterUserModex.cs" />
+    <Compile Include="Migrations\201707131554422_alterUserModex.Designer.cs">
+      <DependentUpon>201707131554422_alterUserModex.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\agent.cs" />
@@ -249,8 +249,8 @@
     <EmbeddedResource Include="Migrations\201707121033539_newUserTableRole.resx">
       <DependentUpon>201707121033539_newUserTableRole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707131158083_testUserTable.resx">
-      <DependentUpon>201707131158083_testUserTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707131554422_alterUserModex.resx">
+      <DependentUpon>201707131554422_alterUserModex.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
