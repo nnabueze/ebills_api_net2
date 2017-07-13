@@ -195,6 +195,7 @@
     <Compile Include="Models\aspnetuser.cs" />
     <Compile Include="Models\aspnetuserclaim.cs" />
     <Compile Include="Models\aspnetuserlogin.cs" />
+    <Compile Include="Models\AuthContext.cs" />
     <Compile Include="Models\AuthRepository.cs" />
     <Compile Include="Models\bank.cs" />
     <Compile Include="Models\beneficiary.cs" />

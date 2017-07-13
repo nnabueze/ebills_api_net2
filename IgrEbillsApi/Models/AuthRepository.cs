@@ -10,13 +10,13 @@ namespace IgrEbillsApi.Models
 {
     public class AuthRepository
     {
-        private IgrAdo _ctx;
+        private AuthContext _ctx;
 
         private UserManager<IdentityUser> _userManager;
 
         public AuthRepository()
         {
-            _ctx = new IgrAdo();
+            _ctx = new AuthContext();
             _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
         }
 

@@ -8,7 +8,9 @@ namespace IgrEbillsApi.Models
 {
     public class UserModel
     {
-        public int Id { get; set; }
+        [Key]
+        [StringLength(50)]
+        public string Id { get; set; }
 
         [Required]
         [Display(Name = "User name")]
