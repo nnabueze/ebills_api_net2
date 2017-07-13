@@ -6,7 +6,7 @@ namespace IgrEbillsApi.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("igrdb.aspnetuserclaims")]
+    [Table("aspnetuserclaims")]
     public partial class aspnetuserclaim
     {
         public int Id { get; set; }
