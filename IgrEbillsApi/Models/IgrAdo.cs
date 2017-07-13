@@ -33,6 +33,8 @@ namespace IgrEbillsApi.Models
         public virtual DbSet<bank> banks { get; set; }
         public virtual DbSet<aspnetuserlogin> aspnetuserlogins { get; set; }
 
+        public virtual DbSet<UserModel> UserModels { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<beneficiary>()
