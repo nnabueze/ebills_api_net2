@@ -171,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\IgrController.cs" />
     <Compile Include="Controllers\IgrNotificationController.cs" />
     <Compile Include="Global.asax.cs">
@@ -194,6 +195,7 @@
     <Compile Include="Models\aspnetuser.cs" />
     <Compile Include="Models\aspnetuserclaim.cs" />
     <Compile Include="Models\aspnetuserlogin.cs" />
+    <Compile Include="Models\AuthRepository.cs" />
     <Compile Include="Models\bank.cs" />
     <Compile Include="Models\beneficiary.cs" />
     <Compile Include="Models\Field.cs" />
