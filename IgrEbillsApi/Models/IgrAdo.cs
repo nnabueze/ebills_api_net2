@@ -32,6 +32,7 @@ namespace IgrEbillsApi.Models
         public virtual DbSet<aspnetuser> aspnetusers { get; set; }
         public virtual DbSet<bank> banks { get; set; }
         public virtual DbSet<aspnetuserlogin> aspnetuserlogins { get; set; }
+        public virtual DbSet<aspnetuserrole> aspnetuserroles { get; set; }
 
         public virtual DbSet<UserModel> UserModels { get; set; }
 
@@ -415,6 +416,14 @@ namespace IgrEbillsApi.Models
 
             modelBuilder.Entity<tin>()
                 .Property(e => e.tin_type)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<aspnetuserrole>()
+                .Property(e => e.UserId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<aspnetuserrole>()
+                .Property(e => e.RoleId)
                 .IsUnicode(false);
         }
     }
