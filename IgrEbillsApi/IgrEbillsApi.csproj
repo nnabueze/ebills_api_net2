@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -178,11 +182,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\IgrController.cs" />
     <Compile Include="Controllers\IgrNotificationController.cs" />
     <Compile Include="Controllers\PosController.cs" />
+    <Compile Include="DTOs\PosDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -230,6 +236,7 @@
     <Compile Include="Models\NotificationResponse.cs" />
     <Compile Include="Models\Param.cs" />
     <Compile Include="Models\pos.cs" />
+    <Compile Include="Models\PosUtility.cs" />
     <Compile Include="Models\remittance.cs" />
     <Compile Include="Models\reportslisting.cs" />
     <Compile Include="Models\revenuehead.cs" />

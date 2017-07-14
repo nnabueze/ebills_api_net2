@@ -179,3 +179,5 @@ C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\Ig
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\bin\Microsoft.Owin.Cors.dll
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\bin\System.Web.Cors.dll
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\bin\Microsoft.Owin.Cors.xml
+C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\bin\AutoMapper.dll
+C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\bin\AutoMapper.xml

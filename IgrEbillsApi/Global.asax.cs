@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoMapper;
+using IgrEbillsApi.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +13,7 @@ namespace IgrEbillsApi
     {
         protected void Application_Start()
         {
+            Mapper.Initialize(c=>c.AddProfile<MappingProfile>());
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
