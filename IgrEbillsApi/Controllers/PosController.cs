@@ -36,9 +36,24 @@ namespace IgrEbillsApi.Controllers
         }
 
         //pos user login
-        public void UserLogin()
+        [HttpPost]
+        public IHttpActionResult UserLog(UserDTO UserDTO)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Parameter Missing");
+            }
 
+            aspnetuser user = utility.GetPosUser(UserDTO);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            UserDTO UserDto = utility.GetUserDTO(user);
+
+            return Ok(UserDto);
         }
     }
 }

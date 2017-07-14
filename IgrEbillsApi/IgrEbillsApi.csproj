@@ -189,6 +189,7 @@
     <Compile Include="Controllers\IgrNotificationController.cs" />
     <Compile Include="Controllers\PosController.cs" />
     <Compile Include="DTOs\PosDTO.cs" />
+    <Compile Include="DTOs\UserDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,7 +242,6 @@
     <Compile Include="Models\Param.cs" />
     <Compile Include="Models\pos.cs" />
     <Compile Include="Models\PosUtility.cs" />
-    <Compile Include="Models\PosUtilityModel\UserModel.cs" />
     <Compile Include="Models\remittance.cs" />
     <Compile Include="Models\reportslisting.cs" />
     <Compile Include="Models\revenuehead.cs" />
@@ -269,6 +269,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\PosUtilityModel\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

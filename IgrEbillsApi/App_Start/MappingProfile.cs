@@ -14,6 +14,9 @@ namespace IgrEbillsApi.App_Start
         {
             Mapper.CreateMap<pos,PosDTO>();
             Mapper.CreateMap<PosDTO,pos>();
+
+            Mapper.CreateMap<aspnetuser, UserDTO>();
+            Mapper.CreateMap<UserDTO, aspnetuser>();
         }
     }
 }
