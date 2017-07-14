@@ -49,6 +49,16 @@ namespace IgrEbillsApi.Models
         [StringLength(256)]
         public string UserName { get; set; }
 
+        [Required]
+        [StringLength(38)]
+        public string IGRCode { get; set; }
+
+        [Required]
+        [StringLength(38)]
+        public string MDACode { get; set; }
+
+        public string Pin { get; set; }
+
 
 
         public DateTime? DateCreated { get; set; }

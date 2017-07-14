@@ -34,5 +34,11 @@ namespace IgrEbillsApi.Controllers
 
             return Ok(posDetails);
         }
+
+        //pos user login
+        public void UserLogin()
+        {
+
+        }
     }
 }
