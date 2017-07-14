@@ -182,6 +182,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\IgrController.cs" />
     <Compile Include="Controllers\IgrNotificationController.cs" />
+    <Compile Include="Controllers\PosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
