@@ -42,6 +42,19 @@ namespace IgrEbillsApi.Controllers
             return Ok();
         }
 
+        //testing aping
+        [Authorize]
+        [HttpGet]
+        public IEnumerable<UserModel> UserDetails()
+        {
+            IgrAdo db = new IgrAdo();
+
+            var result = db.UserModels.ToList();
+
+                return result;
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
