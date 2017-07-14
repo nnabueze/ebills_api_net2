@@ -193,6 +193,10 @@
     <Compile Include="Migrations\201707132348204_addedUserRoleTable.Designer.cs">
       <DependentUpon>201707132348204_addedUserRoleTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707140006199_alterAspNetUser.cs" />
+    <Compile Include="Migrations\201707140006199_alterAspNetUser.Designer.cs">
+      <DependentUpon>201707140006199_alterAspNetUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\agent.cs" />
     <Compile Include="Models\aspnetrole.cs" />
@@ -259,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707132348204_addedUserRoleTable.resx">
       <DependentUpon>201707132348204_addedUserRoleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707140006199_alterAspNetUser.resx">
+      <DependentUpon>201707140006199_alterAspNetUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
