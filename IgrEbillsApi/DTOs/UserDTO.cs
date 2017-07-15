@@ -22,6 +22,8 @@ namespace IgrEbillsApi.DTOs
         [Required]
         public string Pin { get; set; }
 
+        public string MDAStation_ID { get; set; }
+
         [Required]
         public string ActivationCode { get; set; }
     }
