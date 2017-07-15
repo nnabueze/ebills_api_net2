@@ -59,7 +59,8 @@ namespace IgrEbillsApi.Models
 
         public string Pin { get; set; }
 
-
+        [StringLength(38)]
+        public string MDAStation_ID { get; set; }
 
         public DateTime? DateCreated { get; set; }
 

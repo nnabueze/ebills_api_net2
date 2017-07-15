@@ -182,3 +182,4 @@ C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\bin\Microsof
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\bin\AutoMapper.dll
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\bin\AutoMapper.xml
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.addedPinToUserModel.resources
+C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.addedMdaStationIdToUserTable.resources

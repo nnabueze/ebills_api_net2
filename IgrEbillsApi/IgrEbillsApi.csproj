@@ -217,6 +217,10 @@
     <Compile Include="Migrations\201707141345465_addedPinToUserModel.Designer.cs">
       <DependentUpon>201707141345465_addedPinToUserModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707150059327_addedMdaStationIdToUserTable.cs" />
+    <Compile Include="Migrations\201707150059327_addedMdaStationIdToUserTable.Designer.cs">
+      <DependentUpon>201707150059327_addedMdaStationIdToUserTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\agent.cs" />
     <Compile Include="Models\aspnetrole.cs" />
@@ -292,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707141345465_addedPinToUserModel.resx">
       <DependentUpon>201707141345465_addedPinToUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707150059327_addedMdaStationIdToUserTable.resx">
+      <DependentUpon>201707150059327_addedMdaStationIdToUserTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
