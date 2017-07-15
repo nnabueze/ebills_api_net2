@@ -15,45 +15,62 @@ namespace IgrEbillsApi.Controllers
 
 
         //Activating pos
+        
         [Authorize]
         [HttpPost]
         public IHttpActionResult Activation(PosDTO pos)
-        {           
+        {
 
             if (!ModelState.IsValid)
             {
-                return BadRequest("Activation Code Missing");
+                return GetErrorMsg(1, "Activation Code Missing"); 
             }
 
             PosDTO posDetails = utility.GetPos(pos);
 
             if (posDetails == null)
             {
-                return NotFound();
+                return GetErrorMsg(2, "Invalid Activation Code");
             }
 
             return Ok(posDetails);
         }
 
         //pos user login
+        [Authorize]
         [HttpPost]
-        public IHttpActionResult UserLog(UserDTO UserDTO)
+        public IHttpActionResult UserLogin(UserDTO UserRequest)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest("Parameter Missing");
+                return GetErrorMsg(1, "Parameter Missing");
             }
 
-            aspnetuser user = utility.GetPosUser(UserDTO);
+            UserDTO UserResponse = utility.GetPosUser(UserRequest);
 
-            if (user == null)
+            if (UserResponse == null)
             {
-                return NotFound();
+                return GetErrorMsg(2, "User Not Found");
             }
 
-            UserDTO UserDto = utility.GetUserDTO(user);
+            return Ok(UserResponse);
+        }
 
-            return Ok(UserDto);
+        //Getting error messgae
+        public IHttpActionResult GetErrorMsg(int num, string msg)
+        {
+            Dictionary<string, string> error = new Dictionary<string,string>();
+            error.Add("Message",msg);
+
+            switch (num)
+            {
+                case 1:
+                    return BadRequest(msg);
+                case 2:
+                    return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, error));
+                default:
+                    return NotFound();
+            }
         }
     }
 }

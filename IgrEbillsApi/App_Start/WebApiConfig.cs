@@ -11,6 +11,13 @@ namespace IgrEbillsApi
         {
             // Web API configuration and services
 
+            // Controllers with Actions
+            // To handle routes like `/api/VTRouting/route`
+            config.Routes.MapHttpRoute(
+                name: "ControllerAndAction",
+                routeTemplate: "api/{controller}/{action}"
+            );
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 

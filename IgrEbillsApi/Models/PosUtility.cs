@@ -45,20 +45,30 @@ namespace IgrEbillsApi.Models
         }
 
         //getting Pos user login details
-        public aspnetuser GetPosUser(UserDTO User)
+        public UserDTO GetPosUser(UserDTO User)
         {
-            var userDetatils = _db.aspnetusers.Where(o => o.PhoneNumber == User.Phone)
+            var userDetatils = _db.aspnetusers.Where(o => o.PhoneNumber == User.Phone && o.Pin == User.Pin)
                                 .SingleOrDefault();
 
             var posDetails = _db.pos.Where(o=>o.ActivationCode == User.ActivationCode)
                                     .SingleOrDefault();
 
-            if (userDetatils == null && posDetails.Activation == false)
+            if (userDetatils == null || posDetails == null)
             {
                 return null;
             }
 
-            return userDetatils;
+            if (posDetails.Activation == false)
+            {
+                return null;
+            }
+
+            UserDTO UserResponseDTO = Mapper.Map<aspnetuser, UserDTO>(userDetatils);
+
+            UserResponseDTO.Phone = userDetatils.PhoneNumber;
+            UserResponseDTO.ActivationCode = posDetails.ActivationCode;
+
+            return UserResponseDTO;
         }
 
         //getting Mapped User DTO
