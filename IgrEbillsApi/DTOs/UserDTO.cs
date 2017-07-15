@@ -24,7 +24,9 @@ namespace IgrEbillsApi.DTOs
 
         public string MDAStation_ID { get; set; }
 
+        public string USER_ID { get; set; }
+
         [Required]
-        public string ActivationCode { get; set; }
+        public string POS_ID { get; set; }
     }
 }

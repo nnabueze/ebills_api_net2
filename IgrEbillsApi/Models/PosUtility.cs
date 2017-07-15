@@ -50,7 +50,7 @@ namespace IgrEbillsApi.Models
             var userDetatils = _db.aspnetusers.Where(o => o.PhoneNumber == User.Phone && o.Pin == User.Pin)
                                 .SingleOrDefault();
 
-            var posDetails = _db.pos.Where(o=>o.ActivationCode == User.ActivationCode)
+            var posDetails = _db.pos.Where(o=>o.POS_ID == User.POS_ID)
                                     .SingleOrDefault();
 
             if (userDetatils == null || posDetails == null)
@@ -66,15 +66,41 @@ namespace IgrEbillsApi.Models
             UserDTO UserResponseDTO = Mapper.Map<aspnetuser, UserDTO>(userDetatils);
 
             UserResponseDTO.Phone = userDetatils.PhoneNumber;
-            UserResponseDTO.ActivationCode = posDetails.ActivationCode;
+            UserResponseDTO.POS_ID = posDetails.POS_ID;
+            UserResponseDTO.USER_ID = userDetatils.Id;
 
             return UserResponseDTO;
         }
 
-        //getting Mapped User DTO
-        public UserDTO GetUserDTO(aspnetuser user)
+        //get tin
+        public TinDTO GetTin(TinDTO TinRequest)
         {
-            return Mapper.Map<aspnetuser,UserDTO>(user);
+            var userVerify = _db.aspnetusers.Where(o => o.Id == TinRequest.USER_ID).SingleOrDefault();
+
+            var posVerify = _db.pos.Where(o => o.POS_ID == TinRequest.POS_ID).SingleOrDefault();
+
+            var TinVerify = _db.tins.Where(o => o.tin_no == TinRequest.TinNo || o.temporary_tin == TinRequest.TinNo)
+                                            .SingleOrDefault();
+            if (userVerify == null || posVerify == null || TinVerify == null)
+            {
+                return null;
+            }
+
+            TinDTO TinResponseDTO = Mapper.Map<tin,TinDTO>(TinVerify);
+
+            if (string.IsNullOrEmpty(TinVerify.tin_no))
+            {
+                TinResponseDTO.TinNo = TinVerify.temporary_tin;
+            }
+            else
+            {
+                TinResponseDTO.TinNo = TinVerify.tin_no;
+            }
+
+            TinResponseDTO.POS_ID = posVerify.POS_ID;
+            TinResponseDTO.USER_ID = userVerify.Id;
+
+            return TinResponseDTO;
         }
 
     }

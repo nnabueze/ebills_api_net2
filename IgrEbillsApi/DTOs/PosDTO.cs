@@ -14,6 +14,9 @@ namespace IgrEbillsApi.DTOs
         [Required]
         public string ActivationCode { get; set; }
 
+        [StringLength(38)]
+        public string POS_ID { get; set; }
+
 
     }
 }

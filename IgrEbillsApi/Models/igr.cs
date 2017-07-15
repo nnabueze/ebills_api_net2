@@ -9,11 +9,7 @@ namespace IgrEbillsApi.Models
     [Table("igrdb.igr")]
     public partial class igr
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public igr()
-        {
-            tins = new HashSet<tin>();
-        }
+
 
         [Key]
         [StringLength(38)]
@@ -37,8 +33,5 @@ namespace IgrEbillsApi.Models
 
         public int? Id { get; set; }
 
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tin> tins { get; set; }
     }
 }

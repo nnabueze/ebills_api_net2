@@ -189,6 +189,7 @@
     <Compile Include="Controllers\IgrNotificationController.cs" />
     <Compile Include="Controllers\PosController.cs" />
     <Compile Include="DTOs\PosDTO.cs" />
+    <Compile Include="DTOs\TinDTO.cs" />
     <Compile Include="DTOs\UserDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -220,6 +221,10 @@
     <Compile Include="Migrations\201707150059327_addedMdaStationIdToUserTable.cs" />
     <Compile Include="Migrations\201707150059327_addedMdaStationIdToUserTable.Designer.cs">
       <DependentUpon>201707150059327_addedMdaStationIdToUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707150521296_removedTinIgrRelationShip.cs" />
+    <Compile Include="Migrations\201707150521296_removedTinIgrRelationShip.Designer.cs">
+      <DependentUpon>201707150521296_removedTinIgrRelationShip.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\agent.cs" />
@@ -299,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707150059327_addedMdaStationIdToUserTable.resx">
       <DependentUpon>201707150059327_addedMdaStationIdToUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707150521296_removedTinIgrRelationShip.resx">
+      <DependentUpon>201707150521296_removedTinIgrRelationShip.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

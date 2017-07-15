@@ -65,7 +65,5 @@ namespace IgrEbillsApi.Models
         public DateTime? create_at { get; set; }
 
         public DateTime? updated_at { get; set; }
-
-        public virtual igr igr { get; set; }
     }
 }

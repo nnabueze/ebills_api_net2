@@ -17,6 +17,9 @@ namespace IgrEbillsApi.App_Start
 
             Mapper.CreateMap<aspnetuser, UserDTO>();
             Mapper.CreateMap<UserDTO, aspnetuser>();
+
+            Mapper.CreateMap<tin, TinDTO>();
+            Mapper.CreateMap<TinDTO, tin>();
         }
     }
 }

@@ -53,7 +53,30 @@ namespace IgrEbillsApi.Controllers
                 return GetErrorMsg(2, "User Not Found");
             }
 
+            if (UserResponse.MDAStation_ID == null)
+            {
+                return GetErrorMsg(2, "User Not Assigned to Station");
+            }
+
             return Ok(UserResponse);
+        }
+
+        //Verifying Tin
+        [HttpPost]
+        public IHttpActionResult TinVerification(TinDTO TinRequest)
+        {
+            if (!ModelState.IsValid)
+            {
+                return GetErrorMsg(1,"Parameter Missing");
+            }
+
+            TinDTO TinResponse = utility.GetTin(TinRequest);
+            if (TinResponse == null)
+            {
+                return GetErrorMsg(2, "Invalid Tin Number");
+            }
+
+            return Ok(TinResponse);
         }
 
         //Getting error messgae
