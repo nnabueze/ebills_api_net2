@@ -43,5 +43,8 @@ namespace IgrEbillsApi.DTOs
 
         [StringLength(200)]
         public string Email { get; set; }
+
+        [Required]
+        public bool Type { get; set; }
     }
 }

@@ -113,9 +113,17 @@ namespace IgrEbillsApi.Models
                 return null;
             }
 
-            CollectionRequest.COLLECTION_ID = RandomNumber();
+            CollectionRequest.COLLECTION_ID = "CO"+RandomNumber();
 
             pos_collection CollectionMap = Mapper.Map<CollectionDTO,pos_collection>(CollectionRequest);
+
+            CollectionMap.create_at = GetCurrentDateTime();
+            if (CollectionRequest.Type)
+            {
+                CollectionMap.CollectionType = CollectionType.Tax;
+            }
+
+
             var CollectionResponse = _db.pos_collections.Add(CollectionMap);
             _db.SaveChanges();
 
@@ -131,6 +139,14 @@ namespace IgrEbillsApi.Models
             string rNum = DateTime.Now.Millisecond + rnd.Next(0, 900000000).ToString();
 
             return rNum;
+        }
+
+        //getting current date time
+        public DateTime GetCurrentDateTime()
+        {
+            var dt = DateTime.Now;
+            DateTime dtFormated = DateTime.Parse(String.Format("{0:yyyy-MM-dd HH:mm:ss}", dt));
+            return dtFormated;
         }
 
     }
