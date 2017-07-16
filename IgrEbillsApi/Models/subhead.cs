@@ -6,7 +6,7 @@ namespace IgrEbillsApi.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("igrdb.subheads")]
+    [Table("subheads")]
     public partial class subhead
     {
 

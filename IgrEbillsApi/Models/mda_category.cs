@@ -6,7 +6,7 @@ namespace IgrEbillsApi.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("igrdb.mda_category")]
+    [Table("mda_category")]
     public partial class mda_category
     {
         [Key]

@@ -62,6 +62,7 @@ namespace IgrEbillsApi.Controllers
         }
 
         //Verifying Tin
+        [Authorize]
         [HttpPost]
         public IHttpActionResult TinVerification(TinDTO TinRequest)
         {

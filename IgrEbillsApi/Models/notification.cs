@@ -6,7 +6,7 @@ namespace IgrEbillsApi.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("igrdb.notification")]
+    [Table("notification")]
     public partial class notification
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

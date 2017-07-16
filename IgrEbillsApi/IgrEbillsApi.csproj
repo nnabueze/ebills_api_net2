@@ -194,37 +194,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707120500120_initialMigration.cs" />
-    <Compile Include="Migrations\201707120500120_initialMigration.Designer.cs">
-      <DependentUpon>201707120500120_initialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707121033539_newUserTableRole.cs" />
-    <Compile Include="Migrations\201707121033539_newUserTableRole.Designer.cs">
-      <DependentUpon>201707121033539_newUserTableRole.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707131554422_alterUserModex.cs" />
-    <Compile Include="Migrations\201707131554422_alterUserModex.Designer.cs">
-      <DependentUpon>201707131554422_alterUserModex.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707132348204_addedUserRoleTable.cs" />
-    <Compile Include="Migrations\201707132348204_addedUserRoleTable.Designer.cs">
-      <DependentUpon>201707132348204_addedUserRoleTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707140006199_alterAspNetUser.cs" />
-    <Compile Include="Migrations\201707140006199_alterAspNetUser.Designer.cs">
-      <DependentUpon>201707140006199_alterAspNetUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707141345465_addedPinToUserModel.cs" />
-    <Compile Include="Migrations\201707141345465_addedPinToUserModel.Designer.cs">
-      <DependentUpon>201707141345465_addedPinToUserModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707150059327_addedMdaStationIdToUserTable.cs" />
-    <Compile Include="Migrations\201707150059327_addedMdaStationIdToUserTable.Designer.cs">
-      <DependentUpon>201707150059327_addedMdaStationIdToUserTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707150521296_removedTinIgrRelationShip.cs" />
-    <Compile Include="Migrations\201707150521296_removedTinIgrRelationShip.Designer.cs">
-      <DependentUpon>201707150521296_removedTinIgrRelationShip.cs</DependentUpon>
+    <Compile Include="Migrations\201707151304598_initialMigration.cs" />
+    <Compile Include="Migrations\201707151304598_initialMigration.Designer.cs">
+      <DependentUpon>201707151304598_initialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\agent.cs" />
@@ -278,35 +250,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\PosUtilityModel\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707120500120_initialMigration.resx">
-      <DependentUpon>201707120500120_initialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707121033539_newUserTableRole.resx">
-      <DependentUpon>201707121033539_newUserTableRole.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707131554422_alterUserModex.resx">
-      <DependentUpon>201707131554422_alterUserModex.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707132348204_addedUserRoleTable.resx">
-      <DependentUpon>201707132348204_addedUserRoleTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707140006199_alterAspNetUser.resx">
-      <DependentUpon>201707140006199_alterAspNetUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707141345465_addedPinToUserModel.resx">
-      <DependentUpon>201707141345465_addedPinToUserModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707150059327_addedMdaStationIdToUserTable.resx">
-      <DependentUpon>201707150059327_addedMdaStationIdToUserTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707150521296_removedTinIgrRelationShip.resx">
-      <DependentUpon>201707150521296_removedTinIgrRelationShip.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707151304598_initialMigration.resx">
+      <DependentUpon>201707151304598_initialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

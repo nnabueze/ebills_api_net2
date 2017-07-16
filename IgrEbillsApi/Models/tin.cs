@@ -6,7 +6,7 @@ namespace IgrEbillsApi.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("igrdb.tins")]
+    [Table("tins")]
     public partial class tin
     {
         [Key]
@@ -58,12 +58,9 @@ namespace IgrEbillsApi.Models
 
         public DateTime? commencement_date { get; set; }
 
-        [Column(TypeName = "enum")]
-        [StringLength(65532)]
-        public string tin_type { get; set; }
-
         public DateTime? create_at { get; set; }
 
         public DateTime? updated_at { get; set; }
     }
+
 }

@@ -414,10 +414,6 @@ namespace IgrEbillsApi.Models
                 .Property(e => e.reg_bus_name)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<tin>()
-                .Property(e => e.tin_type)
-                .IsUnicode(false);
-
             modelBuilder.Entity<aspnetuserrole>()
                 .Property(e => e.UserId)
                 .IsUnicode(false);
