@@ -9,6 +9,8 @@ namespace IgrEbillsApi.Models
     public class pos_collection
     {
         [Key]
+        public int Id { get; set; }
+
         [StringLength(38)]
         public string COLLECTION_ID { get; set; }
 

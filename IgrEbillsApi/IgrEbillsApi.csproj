@@ -215,6 +215,14 @@
     <Compile Include="Migrations\201707160344469_checkingMigration.Designer.cs">
       <DependentUpon>201707160344469_checkingMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707160520500_addedAutoIncrementCollection.cs" />
+    <Compile Include="Migrations\201707160520500_addedAutoIncrementCollection.Designer.cs">
+      <DependentUpon>201707160520500_addedAutoIncrementCollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707160528085_makingIdKeyCollection.cs" />
+    <Compile Include="Migrations\201707160528085_makingIdKeyCollection.Designer.cs">
+      <DependentUpon>201707160528085_makingIdKeyCollection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\agent.cs" />
     <Compile Include="Models\aspnetrole.cs" />
@@ -287,6 +295,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707160344469_checkingMigration.resx">
       <DependentUpon>201707160344469_checkingMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707160520500_addedAutoIncrementCollection.resx">
+      <DependentUpon>201707160520500_addedAutoIncrementCollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707160528085_makingIdKeyCollection.resx">
+      <DependentUpon>201707160528085_makingIdKeyCollection.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
