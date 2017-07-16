@@ -26,6 +26,8 @@ namespace IgrEbillsApi.Models
         public virtual DbSet<subhead> subheads { get; set; }
         public virtual DbSet<tin> tins { get; set; }
 
+        public virtual DbSet<pos_collection> pos_collections { get; set; }
+
         public virtual DbSet<agent> agents { get; set; }
         public virtual DbSet<aspnetrole> aspnetroles { get; set; }
         public virtual DbSet<aspnetuserclaim> aspnetuserclaims { get; set; }
