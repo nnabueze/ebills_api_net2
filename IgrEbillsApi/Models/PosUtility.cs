@@ -103,5 +103,35 @@ namespace IgrEbillsApi.Models
             return TinResponseDTO;
         }
 
+        //inserting pos collection
+        public CollectionDTO InsertPosCollection(CollectionDTO CollectionRequest)
+        {
+            var UserVerify = _db.aspnetusers.Where(o => o.Id == CollectionRequest.USER_ID).SingleOrDefault();
+            var PosVerify = _db.pos.Where(o => o.POS_ID == CollectionRequest.POS_ID).SingleOrDefault();
+            if (UserVerify == null || PosVerify == null)
+            {
+                return null;
+            }
+
+            CollectionRequest.COLLECTION_ID = RandomNumber();
+
+            pos_collection CollectionMap = Mapper.Map<CollectionDTO,pos_collection>(CollectionRequest);
+            var CollectionResponse = _db.pos_collections.Add(CollectionMap);
+            _db.SaveChanges();
+
+            CollectionDTO CollectionResponseDTO = Mapper.Map<pos_collection,CollectionDTO>(CollectionResponse);
+
+            return CollectionResponseDTO;
+        }
+
+        //generating ranmdom number
+        public string RandomNumber()
+        {
+            var rnd = new Random(DateTime.Now.Millisecond);
+            string rNum = DateTime.Now.Millisecond + rnd.Next(0, 900000000).ToString();
+
+            return rNum;
+        }
+
     }
 }

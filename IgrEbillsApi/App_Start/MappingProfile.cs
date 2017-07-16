@@ -20,6 +20,9 @@ namespace IgrEbillsApi.App_Start
 
             Mapper.CreateMap<tin, TinDTO>();
             Mapper.CreateMap<TinDTO, tin>();
+
+            Mapper.CreateMap<CollectionDTO, pos_collection>();
+            Mapper.CreateMap<pos_collection,CollectionDTO>();
         }
     }
 }

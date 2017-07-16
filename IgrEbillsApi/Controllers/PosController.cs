@@ -80,6 +80,25 @@ namespace IgrEbillsApi.Controllers
             return Ok(TinResponse);
         }
 
+        //pos collection
+        [HttpPost]
+        public IHttpActionResult PosCollection(CollectionDTO CollectionRequest)
+        {
+            if (!ModelState.IsValid)
+            {
+                return GetErrorMsg(1, "Parameter Missing");
+            }
+
+            CollectionDTO CollectionResponse = utility.InsertPosCollection(CollectionRequest);
+            if (CollectionResponse == null)
+            {
+                return GetErrorMsg(2, "Unable to insert record");
+            }
+
+            return Ok(CollectionResponse);
+
+        }
+
         //Getting error messgae
         public IHttpActionResult GetErrorMsg(int num, string msg)
         {

@@ -178,3 +178,6 @@ C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\bin\AutoMapp
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.initialMigration.resources
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.csproj.GenerateResource.Cache
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.addedPosCollectionTable.resources
+C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.addedCollectionTypeToColeectionTable.resources
+C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.addedCollectionStatusToColeectionTable.resources
+C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.checkingMigration.resources

@@ -4,11 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace IgrEbillsApi.Models
+namespace IgrEbillsApi.DTOs
 {
-    public class pos_collection
+    public class CollectionDTO
     {
-        [Key]
         [StringLength(38)]
         public string COLLECTION_ID { get; set; }
 
@@ -28,9 +27,6 @@ namespace IgrEbillsApi.Models
         public string USER_ID { get; set; }
 
         [StringLength(38)]
-        public string remittance_id { get; set; }
-
-        [StringLength(38)]
         public string MDA_ID { get; set; }
 
         [Required]
@@ -47,26 +43,5 @@ namespace IgrEbillsApi.Models
 
         [StringLength(200)]
         public string Email { get; set; }
-
-        public CollectionType CollectionType { get; set; }
-
-        public CollectionStatus CollectionStatus { get; set; }
-
-        public DateTime? create_at { get; set; }
-
-        public DateTime? updated_at { get; set; }
     }
-
-    public enum CollectionType
-    {
-        NonTax=0,
-        Tax=1
-    };
-
-    public enum CollectionStatus
-    {
-        NonRemitted,
-        Remitted
-        
-    };
 }
