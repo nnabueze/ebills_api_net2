@@ -27,6 +27,13 @@ namespace IgrEbillsApi.Models
         [StringLength(200)]
         public string phone { get; set; }
 
+        [StringLength(200)]
+        public string MDAStation_ID { get; set; }
+
+        public string USER_ID { get; set; }
+
+        public string POS_ID { get; set; }
+
         public DateTime? create_at { get; set; }
 
         public DateTime? updated_at { get; set; }

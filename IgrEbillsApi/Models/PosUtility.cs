@@ -233,6 +233,8 @@ namespace IgrEbillsApi.Models
 
             invoice InvoiceMap = Mapper.Map<InvoceDTO, invoice>(InvoiceRequest);
 
+            InvoiceMap.create_at = GetCurrentDateTime();
+
             var InvoiceResponse = _db.invoices.Add(InvoiceMap);
             _db.SaveChanges();
 

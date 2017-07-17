@@ -190,3 +190,4 @@ C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\Ig
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.AddedPosUserlimit.resources
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.removedInvoiceStatus.resources
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.addedInvoiceStatus.resources
+C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.addStationIdToInvoice.resources

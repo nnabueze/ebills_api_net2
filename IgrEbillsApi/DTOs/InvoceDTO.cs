@@ -20,6 +20,10 @@ namespace IgrEbillsApi.DTOs
         public string MDA_ID { get; set; }
 
         [Required]
+        [StringLength(38)]
+        public string MDAStation_ID { get; set; }
+
+        [Required]
         [StringLength(200)]
         public string name { get; set; }
 

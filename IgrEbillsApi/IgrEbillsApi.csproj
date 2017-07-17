@@ -253,6 +253,10 @@
     <Compile Include="Migrations\201707171039061_addedInvoiceStatus.Designer.cs">
       <DependentUpon>201707171039061_addedInvoiceStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707171123463_addStationIdToInvoice.cs" />
+    <Compile Include="Migrations\201707171123463_addStationIdToInvoice.Designer.cs">
+      <DependentUpon>201707171123463_addStationIdToInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\agent.cs" />
     <Compile Include="Models\aspnetrole.cs" />
@@ -352,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707171039061_addedInvoiceStatus.resx">
       <DependentUpon>201707171039061_addedInvoiceStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707171123463_addStationIdToInvoice.resx">
+      <DependentUpon>201707171123463_addStationIdToInvoice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
