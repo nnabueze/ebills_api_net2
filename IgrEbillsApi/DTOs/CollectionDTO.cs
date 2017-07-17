@@ -46,5 +46,7 @@ namespace IgrEbillsApi.DTOs
 
         [Required]
         public bool Type { get; set; }
+
+        public int Message { get; set; }
     }
 }

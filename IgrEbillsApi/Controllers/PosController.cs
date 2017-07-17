@@ -96,11 +96,17 @@ namespace IgrEbillsApi.Controllers
                 return GetErrorMsg(2, "Unable to insert record");
             }
 
+            if (CollectionResponse.Message == 1)
+            {
+                return GetErrorMsg(2, "Collection Limit Exceeded");
+            }
+
             return Ok(CollectionResponse);
 
         }
 
         //generating remittance
+        [Authorize]
         [HttpPost]
         public IHttpActionResult GenerateRemittance(RemittanceDTO RemiteRequest)
         {

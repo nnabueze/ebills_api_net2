@@ -113,6 +113,17 @@ namespace IgrEbillsApi.Models
                 return null;
             }
 
+            var collectionAmount = _db.pos_collections.Where(o => o.USER_ID == CollectionRequest.USER_ID
+                                                            && o.CollectionStatus == 0
+                                                            && o.MDAStation_ID == CollectionRequest.MDAStation_ID)
+                                                            .Select(o => o.Amount).Sum();
+            var TotalAmount = collectionAmount + CollectionRequest.Amount;
+            if (TotalAmount >= UserVerify.UserLimit)
+            {
+                CollectionRequest.Message = 1;
+                return CollectionRequest;
+            }
+
             CollectionRequest.COLLECTION_ID = "CO"+RandomNumber();
 
             pos_collection CollectionMap = Mapper.Map<CollectionDTO,pos_collection>(CollectionRequest);
