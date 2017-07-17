@@ -142,11 +142,7 @@ namespace IgrEbillsApi.Models
                 return null;
             }
 
-            remittance RemiteResponse;
-
-            using (IgrAdo db = new IgrAdo())
-            {
-                var RemitStatus = db.remittances.Where(o => o.USER_ID == RemitRequest.USER_ID
+                var RemitStatus = _db.remittances.Where(o => o.USER_ID == RemitRequest.USER_ID
                                                 && o.remittance_status == 0
                                                 && o.MDAStation_ID == RemitRequest.MDAStation_ID)
                                                 .SingleOrDefault();
@@ -157,7 +153,7 @@ namespace IgrEbillsApi.Models
                     return RemitRequest;
                 }
 
-                var collection = db.pos_collections.Where(o => o.USER_ID == RemitRequest.USER_ID
+                var collection = _db.pos_collections.Where(o => o.USER_ID == RemitRequest.USER_ID
                                                             && o.CollectionStatus == 0
                                                             && o.MDAStation_ID == RemitRequest.MDAStation_ID)
                                                             .FirstOrDefault();
@@ -167,7 +163,7 @@ namespace IgrEbillsApi.Models
                     return RemitRequest;
                 }
 
-                var collectionAmount = db.pos_collections.Where(o => o.USER_ID == RemitRequest.USER_ID
+                var collectionAmount = _db.pos_collections.Where(o => o.USER_ID == RemitRequest.USER_ID
                                                             && o.CollectionStatus == 0
                                                             && o.MDAStation_ID == RemitRequest.MDAStation_ID)
                                                             .Select(o => o.Amount).Sum();
@@ -177,10 +173,8 @@ namespace IgrEbillsApi.Models
                 RemiteMap.remittance_id = "RE" + RandomNumber();
                 RemiteMap.create_at = GetCurrentDateTime();
 
-                RemiteResponse = db.remittances.Add(RemiteMap);
-                db.SaveChanges();
-
-            }
+                var RemiteResponse = _db.remittances.Add(RemiteMap);
+                _db.SaveChanges();
 
 
 
