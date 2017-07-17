@@ -81,6 +81,7 @@ namespace IgrEbillsApi.Controllers
         }
 
         //pos collection
+        [Authorize]
         [HttpPost]
         public IHttpActionResult PosCollection(CollectionDTO CollectionRequest)
         {
@@ -96,6 +97,12 @@ namespace IgrEbillsApi.Controllers
             }
 
             return Ok(CollectionResponse);
+
+        }
+
+        //generating remittance
+        public void GenerateRemittance()
+        {
 
         }
 
