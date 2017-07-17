@@ -164,6 +164,7 @@ namespace IgrEbillsApi.Models
             RemiteMap.create_at = GetCurrentDateTime();
 
             var RemiteResponse = _db.remittances.Add(RemiteMap);
+            _db.SaveChanges();
 
             var CollectionRemite = _db.pos_collections.Where(o => o.USER_ID == RemiteResponse.USER_ID
                                                         && o.CollectionStatus == 0

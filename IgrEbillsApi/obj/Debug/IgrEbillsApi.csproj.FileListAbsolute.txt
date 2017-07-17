@@ -186,3 +186,4 @@ C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\Ig
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.testing.resources
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.addedRemittanceStatusToRemittance.resources
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.addedUserIDAndPosIDToRemittance.resources
+C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr\IgrEbillsApi\obj\Debug\IgrEbillsApi.Migrations.RemovedMdaRelationshipWithRemittance.resources

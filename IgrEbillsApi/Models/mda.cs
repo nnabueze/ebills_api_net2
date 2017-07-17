@@ -13,7 +13,6 @@ namespace IgrEbillsApi.Models
         public mda()
         {
             invoices = new HashSet<invoice>();
-            remittances = new HashSet<remittance>();
         }
 
         [Key]
@@ -46,8 +45,5 @@ namespace IgrEbillsApi.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<invoice> invoices { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<remittance> remittances { get; set; }
     }
 }

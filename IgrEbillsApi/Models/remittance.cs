@@ -36,8 +36,6 @@ namespace IgrEbillsApi.Models
         public DateTime? create_at { get; set; }
 
         public DateTime? updated_at { get; set; }
-
-        public virtual mda mda { get; set; }
     }
 
     public enum RemittanceStatus

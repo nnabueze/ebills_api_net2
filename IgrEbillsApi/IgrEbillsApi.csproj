@@ -236,6 +236,10 @@
     <Compile Include="Migrations\201707170202066_addedUserIDAndPosIDToRemittance.Designer.cs">
       <DependentUpon>201707170202066_addedUserIDAndPosIDToRemittance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707170746210_RemovedMdaRelationshipWithRemittance.cs" />
+    <Compile Include="Migrations\201707170746210_RemovedMdaRelationshipWithRemittance.Designer.cs">
+      <DependentUpon>201707170746210_RemovedMdaRelationshipWithRemittance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\agent.cs" />
     <Compile Include="Models\aspnetrole.cs" />
@@ -323,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707170202066_addedUserIDAndPosIDToRemittance.resx">
       <DependentUpon>201707170202066_addedUserIDAndPosIDToRemittance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707170746210_RemovedMdaRelationshipWithRemittance.resx">
+      <DependentUpon>201707170746210_RemovedMdaRelationshipWithRemittance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
