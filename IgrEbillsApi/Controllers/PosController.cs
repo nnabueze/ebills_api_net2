@@ -120,6 +120,13 @@ namespace IgrEbillsApi.Controllers
                 return GetErrorMsg(2, "Pending Remittance");
             }
 
+            if (RemitResponse.Message == 2)
+            {
+                return GetErrorMsg(2, "No Pending Collection");
+            }
+
+            utility.UpdateCollection(RemitResponse);
+
             return Ok(RemitResponse);
         }
 

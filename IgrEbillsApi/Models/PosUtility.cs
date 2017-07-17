@@ -142,43 +142,66 @@ namespace IgrEbillsApi.Models
                 return null;
             }
 
-            var RemitStatus = _db.remittances.Where(o => o.USER_ID == RemitRequest.USER_ID 
-                                                            && o.remittance_status == 0 
+            remittance RemiteResponse;
+
+            using (IgrAdo db = new IgrAdo())
+            {
+                var RemitStatus = db.remittances.Where(o => o.USER_ID == RemitRequest.USER_ID
+                                                && o.remittance_status == 0
+                                                && o.MDAStation_ID == RemitRequest.MDAStation_ID)
+                                                .SingleOrDefault();
+
+                if (RemitStatus != null)
+                {
+                    RemitRequest.Message = 1;
+                    return RemitRequest;
+                }
+
+                var collection = db.pos_collections.Where(o => o.USER_ID == RemitRequest.USER_ID
+                                                            && o.CollectionStatus == 0
                                                             && o.MDAStation_ID == RemitRequest.MDAStation_ID)
-                                                            .SingleOrDefault();
+                                                            .FirstOrDefault();
+                if (collection == null)
+                {
+                    RemitRequest.Message = 2;
+                    return RemitRequest;
+                }
 
-            if (RemitStatus != null)
-            {
-                RemitRequest.Message = 1;
-                return RemitRequest;
+                var collectionAmount = db.pos_collections.Where(o => o.USER_ID == RemitRequest.USER_ID
+                                                            && o.CollectionStatus == 0
+                                                            && o.MDAStation_ID == RemitRequest.MDAStation_ID)
+                                                            .Select(o => o.Amount).Sum();
+
+                remittance RemiteMap = Mapper.Map<RemittanceDTO, remittance>(RemitRequest);
+                RemiteMap.amount = collectionAmount;
+                RemiteMap.remittance_id = "RE" + RandomNumber();
+                RemiteMap.create_at = GetCurrentDateTime();
+
+                RemiteResponse = db.remittances.Add(RemiteMap);
+                db.SaveChanges();
+
             }
 
-            var collectionAmount = _db.pos_collections.Where(o => o.USER_ID == RemitRequest.USER_ID
-                                                        && o.CollectionStatus == 0 
-                                                        && o.MDAStation_ID==RemitRequest.MDAStation_ID)
-                                                        .Select(o => o.Amount).Sum();
 
-            remittance RemiteMap = Mapper.Map<RemittanceDTO, remittance>(RemitRequest);
-            RemiteMap.amount = collectionAmount;
-            RemiteMap.remittance_id = "RE" + RandomNumber();
-            RemiteMap.create_at = GetCurrentDateTime();
-
-            var RemiteResponse = _db.remittances.Add(RemiteMap);
-            _db.SaveChanges();
-
-            var CollectionRemite = _db.pos_collections.Where(o => o.USER_ID == RemiteResponse.USER_ID
-                                                        && o.CollectionStatus == 0
-                                                        && o.MDAStation_ID == RemiteResponse.MDAStation_ID);
-            foreach (var item in CollectionRemite)
-            {
-                item.remittance_id = RemiteResponse.remittance_id;
-                item.CollectionStatus = CollectionStatus.Remitted;
-                _db.SaveChanges();
-            }
 
             RemittanceDTO RemiteResponseDTO = Mapper.Map<remittance, RemittanceDTO>(RemiteResponse);
 
             return RemiteResponseDTO;
+        }
+
+        //updating pos collection status
+        public void UpdateCollection(RemittanceDTO RemitRequest)
+        {
+            var CollectionRemite = _db.pos_collections.Where(o => o.USER_ID == RemitRequest.USER_ID
+                                                        && o.CollectionStatus == 0
+                                                        && o.MDAStation_ID == RemitRequest.MDAStation_ID)
+                                                        .ToList();
+            foreach (var item in CollectionRemite)
+            {
+                item.remittance_id = RemitRequest.remittance_id;
+                item.CollectionStatus = CollectionStatus.Remitted;
+                _db.SaveChanges();
+            }
         }
 
         //generating ranmdom number
