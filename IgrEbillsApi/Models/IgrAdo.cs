@@ -269,10 +269,6 @@ namespace IgrEbillsApi.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<remittance>()
-                .Property(e => e.remittance_status)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<remittance>()
                 .Property(e => e.MDA_ID)
                 .IsUnicode(false);
 

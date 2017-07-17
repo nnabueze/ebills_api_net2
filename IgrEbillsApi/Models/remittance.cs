@@ -15,12 +15,21 @@ namespace IgrEbillsApi.Models
 
         public decimal? amount { get; set; }
 
-        [Column(TypeName = "enum")]
-        [StringLength(65532)]
-        public string remittance_status { get; set; }
+        public RemittanceStatus remittance_status { get; set; }
+
+        [StringLength(38)]
+        public string MDAStation_ID { get; set; }
 
         [StringLength(38)]
         public string MDA_ID { get; set; }
+
+        [Required]
+        [StringLength(38)]
+        public string USER_ID { get; set; }
+
+        [Required]
+        [StringLength(38)]
+        public string POS_ID { get; set; }
 
         public DateTime? remtted_date { get; set; }
 
@@ -29,5 +38,11 @@ namespace IgrEbillsApi.Models
         public DateTime? updated_at { get; set; }
 
         public virtual mda mda { get; set; }
+    }
+
+    public enum RemittanceStatus
+    {
+        NonRemitted=0,
+        Remitted=1
     }
 }

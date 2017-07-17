@@ -8,6 +8,10 @@ namespace IgrEbillsApi.DTOs
 {
     public class RemittanceDTO
     {
+        public string remittance_id { get; set; }
+
+        public decimal? amount { get; set; }
+
         [Required]
         public string USER_ID { get; set; }
 
@@ -18,5 +22,7 @@ namespace IgrEbillsApi.DTOs
 
         [Required]
         public string MDAStation_ID { get; set; }
+
+        public int Message { get; set; }
     }
 }

@@ -190,6 +190,7 @@
     <Compile Include="Controllers\PosController.cs" />
     <Compile Include="DTOs\CollectionDTO.cs" />
     <Compile Include="DTOs\PosDTO.cs" />
+    <Compile Include="DTOs\RemittanceDTO.cs" />
     <Compile Include="DTOs\TinDTO.cs" />
     <Compile Include="DTOs\UserDTO.cs" />
     <Compile Include="Global.asax.cs">
@@ -222,6 +223,18 @@
     <Compile Include="Migrations\201707160528085_makingIdKeyCollection.cs" />
     <Compile Include="Migrations\201707160528085_makingIdKeyCollection.Designer.cs">
       <DependentUpon>201707160528085_makingIdKeyCollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707170101232_testing.cs" />
+    <Compile Include="Migrations\201707170101232_testing.Designer.cs">
+      <DependentUpon>201707170101232_testing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707170117511_addedRemittanceStatusToRemittance.cs" />
+    <Compile Include="Migrations\201707170117511_addedRemittanceStatusToRemittance.Designer.cs">
+      <DependentUpon>201707170117511_addedRemittanceStatusToRemittance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707170202066_addedUserIDAndPosIDToRemittance.cs" />
+    <Compile Include="Migrations\201707170202066_addedUserIDAndPosIDToRemittance.Designer.cs">
+      <DependentUpon>201707170202066_addedUserIDAndPosIDToRemittance.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\agent.cs" />
@@ -301,6 +314,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707160528085_makingIdKeyCollection.resx">
       <DependentUpon>201707160528085_makingIdKeyCollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707170101232_testing.resx">
+      <DependentUpon>201707170101232_testing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707170117511_addedRemittanceStatusToRemittance.resx">
+      <DependentUpon>201707170117511_addedRemittanceStatusToRemittance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707170202066_addedUserIDAndPosIDToRemittance.resx">
+      <DependentUpon>201707170202066_addedUserIDAndPosIDToRemittance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

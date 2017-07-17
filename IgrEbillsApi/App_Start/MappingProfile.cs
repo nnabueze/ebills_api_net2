@@ -23,6 +23,9 @@ namespace IgrEbillsApi.App_Start
 
             Mapper.CreateMap<CollectionDTO, pos_collection>();
             Mapper.CreateMap<pos_collection,CollectionDTO>();
+
+            Mapper.CreateMap<RemittanceDTO, remittance>();
+            Mapper.CreateMap<remittance, RemittanceDTO>();
         }
     }
 }

@@ -101,9 +101,26 @@ namespace IgrEbillsApi.Controllers
         }
 
         //generating remittance
-        public void GenerateRemittance()
+        [HttpPost]
+        public IHttpActionResult GenerateRemittance(RemittanceDTO RemiteRequest)
         {
+            if (!ModelState.IsValid)
+            {
+                return GetErrorMsg(1, "Parameter Missing");
+            }
 
+            RemittanceDTO RemitResponse = utility.GetRemittance(RemiteRequest);
+            if (RemitResponse == null)
+            {
+                return GetErrorMsg(2, "Parameter Missing");
+            }
+
+            if (RemitResponse.Message == 1)
+            {
+                return GetErrorMsg(2, "Pending Remittance");
+            }
+
+            return Ok(RemitResponse);
         }
 
         //Getting error messgae
