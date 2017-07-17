@@ -15,10 +15,6 @@ namespace IgrEbillsApi.Models
 
         public decimal? amount { get; set; }
 
-        [Column(TypeName = "enum")]
-        [StringLength(65532)]
-        public string invoice_status { get; set; }
-
         [StringLength(38)]
         public string MDA_ID { get; set; }
 
@@ -34,7 +30,5 @@ namespace IgrEbillsApi.Models
         public DateTime? create_at { get; set; }
 
         public DateTime? updated_at { get; set; }
-
-        public virtual mda mda { get; set; }
     }
 }

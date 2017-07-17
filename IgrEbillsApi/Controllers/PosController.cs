@@ -136,6 +136,25 @@ namespace IgrEbillsApi.Controllers
             return Ok(RemitResponse);
         }
 
+        //generate invoice
+        [HttpPost]
+        public IHttpActionResult GenerateInvoice(InvoceDTO InvoiceRequest)
+        {
+            if (!ModelState.IsValid)
+            {
+                return GetErrorMsg(1, "Parameter Missing");
+            }
+
+            InvoceDTO InvoiceResponse = utility.GetInvoice(InvoiceRequest);
+
+            if (InvoiceResponse.Message == 1)
+            {
+                return GetErrorMsg(1, "Pending Remittance");
+            }
+
+            return Ok(InvoiceResponse);
+        }
+
         //Getting error messgae
         public IHttpActionResult GetErrorMsg(int num, string msg)
         {

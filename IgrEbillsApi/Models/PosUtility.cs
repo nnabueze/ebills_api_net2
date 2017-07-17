@@ -209,6 +209,39 @@ namespace IgrEbillsApi.Models
             }
         }
 
+        //generating invoice
+        public InvoceDTO GetInvoice(InvoceDTO InvoiceRequest)
+        {
+            var UserVerify = _db.aspnetusers.Where(o => o.Id == InvoiceRequest.USER_ID).SingleOrDefault();
+            var PosVerify = _db.pos.Where(o => o.POS_ID == InvoiceRequest.POS_ID).SingleOrDefault();
+            if (UserVerify == null || PosVerify == null)
+            {
+                return null;
+            }
+
+            var RemitStatus = _db.remittances.Where(o => o.USER_ID == InvoiceRequest.USER_ID
+                                && o.remittance_status == 0)
+                                .SingleOrDefault();
+
+            if (RemitStatus != null)
+            {
+                InvoiceRequest.Message = 1;
+                return InvoiceRequest;
+            }
+
+            InvoiceRequest.invoice_id = "IN" + RandomNumber();
+
+            invoice InvoiceMap = Mapper.Map<InvoceDTO, invoice>(InvoiceRequest);
+
+            var InvoiceResponse = _db.invoices.Add(InvoiceMap);
+            _db.SaveChanges();
+
+            InvoceDTO InvoiceResponseDTO = Mapper.Map<invoice, InvoceDTO>(InvoiceResponse);
+
+            return InvoiceResponseDTO;
+
+        }
+
         //generating ranmdom number
         public string RandomNumber()
         {

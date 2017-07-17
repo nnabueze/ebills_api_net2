@@ -9,11 +9,7 @@ namespace IgrEbillsApi.Models
     [Table("mda")]
     public partial class mda
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public mda()
-        {
-            invoices = new HashSet<invoice>();
-        }
+
 
         [Key]
         [StringLength(38)]
@@ -22,6 +18,8 @@ namespace IgrEbillsApi.Models
         [Required]
         [StringLength(38)]
         public string IGR_ID { get; set; }
+
+        public InvoiceType Invoice_status { get; set; }
 
         [Required]
         [StringLength(38)]
@@ -42,8 +40,11 @@ namespace IgrEbillsApi.Models
         public DateTime? DateCreated { get; set; }
 
         public DateTime? DateUpdated { get; set; }
+    }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<invoice> invoices { get; set; }
+    public enum InvoiceType
+    {
+        NonPaid=0,
+        Paid=1
     }
 }

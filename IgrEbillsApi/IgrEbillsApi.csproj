@@ -189,6 +189,7 @@
     <Compile Include="Controllers\IgrNotificationController.cs" />
     <Compile Include="Controllers\PosController.cs" />
     <Compile Include="DTOs\CollectionDTO.cs" />
+    <Compile Include="DTOs\InvoceDTO.cs" />
     <Compile Include="DTOs\PosDTO.cs" />
     <Compile Include="DTOs\RemittanceDTO.cs" />
     <Compile Include="DTOs\TinDTO.cs" />
@@ -243,6 +244,14 @@
     <Compile Include="Migrations\201707170927421_AddedPosUserlimit.cs" />
     <Compile Include="Migrations\201707170927421_AddedPosUserlimit.Designer.cs">
       <DependentUpon>201707170927421_AddedPosUserlimit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707171035019_removedInvoiceStatus.cs" />
+    <Compile Include="Migrations\201707171035019_removedInvoiceStatus.Designer.cs">
+      <DependentUpon>201707171035019_removedInvoiceStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707171039061_addedInvoiceStatus.cs" />
+    <Compile Include="Migrations\201707171039061_addedInvoiceStatus.Designer.cs">
+      <DependentUpon>201707171039061_addedInvoiceStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\agent.cs" />
@@ -337,6 +346,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707170927421_AddedPosUserlimit.resx">
       <DependentUpon>201707170927421_AddedPosUserlimit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707171035019_removedInvoiceStatus.resx">
+      <DependentUpon>201707171035019_removedInvoiceStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707171039061_addedInvoiceStatus.resx">
+      <DependentUpon>201707171039061_addedInvoiceStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

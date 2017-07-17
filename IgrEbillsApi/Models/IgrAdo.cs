@@ -97,10 +97,6 @@ namespace IgrEbillsApi.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<invoice>()
-                .Property(e => e.invoice_status)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<invoice>()
                 .Property(e => e.MDA_ID)
                 .IsUnicode(false);
 
