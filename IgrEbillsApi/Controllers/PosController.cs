@@ -101,6 +101,11 @@ namespace IgrEbillsApi.Controllers
                 return GetErrorMsg(2, "Collection Limit Exceeded");
             }
 
+            if (CollectionResponse.Message == 2)
+            {
+                return GetErrorMsg(2, "Pinding Remittance");
+            }
+
             return Ok(CollectionResponse);
 
         }
@@ -137,6 +142,7 @@ namespace IgrEbillsApi.Controllers
         }
 
         //generate invoice
+        [Authorize]
         [HttpPost]
         public IHttpActionResult GenerateInvoice(InvoceDTO InvoiceRequest)
         {

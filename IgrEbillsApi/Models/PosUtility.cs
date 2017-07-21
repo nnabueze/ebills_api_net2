@@ -113,10 +113,19 @@ namespace IgrEbillsApi.Models
             {
                 return null;
             }
+            
+            var Remittance = _db.remittances.Where(o => o.USER_ID == CollectionRequest.USER_ID).SingleOrDefault();
+
+            if (Remittance != null &&  Remittance.remittance_status == RemittanceStatus.NonRemitted)
+            {
+                CollectionRequest.Message = 2;
+                return CollectionRequest;
+            }
 
             var collection = _db.pos_collections.Where(o => o.USER_ID == CollectionRequest.USER_ID
                                                 && o.CollectionStatus == 0
-                                                && o.MDAStation_ID == CollectionRequest.MDAStation_ID);
+                                                && o.MDAStation_ID == CollectionRequest.MDAStation_ID)
+                                                .FirstOrDefault();
 
             if (collection != null)
             {
