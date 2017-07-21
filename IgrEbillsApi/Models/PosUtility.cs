@@ -106,6 +106,7 @@ namespace IgrEbillsApi.Models
         //inserting pos collection
         public CollectionDTO InsertPosCollection(CollectionDTO CollectionRequest)
         {
+            Decimal collectionAmount = 0;
             var UserVerify = _db.aspnetusers.Where(o => o.Id == CollectionRequest.USER_ID).SingleOrDefault();
             var PosVerify = _db.pos.Where(o => o.POS_ID == CollectionRequest.POS_ID).SingleOrDefault();
             if (UserVerify == null || PosVerify == null)
@@ -113,10 +114,19 @@ namespace IgrEbillsApi.Models
                 return null;
             }
 
-            var collectionAmount = _db.pos_collections.Where(o => o.USER_ID == CollectionRequest.USER_ID
-                                                            && o.CollectionStatus == 0
-                                                            && o.MDAStation_ID == CollectionRequest.MDAStation_ID)
-                                                            .Select(o => o.Amount).Sum();
+            var collection = _db.pos_collections.Where(o => o.USER_ID == CollectionRequest.USER_ID
+                                                && o.CollectionStatus == 0
+                                                && o.MDAStation_ID == CollectionRequest.MDAStation_ID);
+
+            if (collection != null)
+            {
+                collectionAmount = _db.pos_collections.Where(o => o.USER_ID == CollectionRequest.USER_ID
+                                                && o.CollectionStatus == 0
+                                                && o.MDAStation_ID == CollectionRequest.MDAStation_ID)
+                                                .Select(o => o.Amount).Sum();
+            }
+
+
             var TotalAmount = collectionAmount + CollectionRequest.Amount;
             if (TotalAmount >= UserVerify.UserLimit)
             {
