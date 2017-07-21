@@ -238,11 +238,9 @@ namespace IgrEbillsApi.Models
                 return null;
             }
 
-            var RemitStatus = _db.remittances.Where(o => o.USER_ID == InvoiceRequest.USER_ID
-                                && o.remittance_status == 0)
-                                .SingleOrDefault();
+            var Remittance = _db.remittances.Where(o => o.USER_ID == InvoiceRequest.USER_ID).SingleOrDefault();
 
-            if (RemitStatus != null)
+            if (Remittance != null && Remittance.remittance_status == RemittanceStatus.NonRemitted)
             {
                 InvoiceRequest.Message = 1;
                 return InvoiceRequest;
