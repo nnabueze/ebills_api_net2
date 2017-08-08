@@ -29,6 +29,20 @@ namespace IgrEbillsApi.Controllers
             doc.Load(value.Content.ReadAsStreamAsync().Result);
 
             var obj = JsonConvert.SerializeXmlNode(doc);
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\LogNotification.txt", true))
+            {
+
+                DateTime today = DateTime.UtcNow.Date;
+                file.WriteLine(today);
+                for (int i = 0; i < 50; i++)
+                {
+                    file.Write("=");
+                }
+                file.WriteLine(" ");
+                file.Write(obj);
+                file.WriteLine(" ");
+
+            }
             vResponse = JObject.Parse(obj)["NotificationRequest"].ToObject<NotificationRequest>();
 
             notify.sessionID = vResponse.SessionID;

@@ -1,6 +1,7 @@
 ﻿using IgrEbillsApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -36,9 +37,28 @@ namespace IgrEbillsApi.Controllers
             doc.Load(value.Content.ReadAsStreamAsync().Result);
 
             var obj = JsonConvert.SerializeXmlNode(doc);
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\LogRequest.txt", true))
+            {
+
+                DateTime today = DateTime.UtcNow.Date;
+                file.WriteLine(today);
+                for (int i = 0; i < 50; i++)
+                {
+                    file.Write("=");
+                }
+                file.WriteLine(" ");
+                file.Write(obj);
+                file.WriteLine(" ");
+
+            }
             vResponse = JObject.Parse(obj)["ValidationRequest"].ToObject<ValidationRequest>();
 
+            
+
             utility = new Utility(vResponse);
+
+            Utility.LogRequest(vResponse);
 
             //checking if the productname is empty
             if (string.IsNullOrEmpty(vResponse.ProductName))
