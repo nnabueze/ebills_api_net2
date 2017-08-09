@@ -34,9 +34,6 @@ C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\Microso
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\Microsoft.Owin.Security.Cookies.dll
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\Microsoft.Owin.Security.dll
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\MySql.Data.dll
-C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\MySql.Data.Entity.EF6.dll
-C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\MySql.Web.dll
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\Newtonsoft.Json.dll
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\Owin.dll
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\System.Net.Http.Formatting.dll
@@ -62,9 +59,7 @@ C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\Microso
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\Microsoft.Owin.Security.xml
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\MySql.Data.xml
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\MySql.Data.Entity.EF6.xml
-C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\MySql.Web.xml
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\System.Web.Http.Owin.xml
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\Newtonsoft.Json.xml
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\bin\System.Net.Http.Formatting.xml
@@ -88,3 +83,4 @@ C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\obj\Release
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\obj\Release\IgrEbillsApi.csproj.GenerateResource.Cache
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\obj\Release\IgrEbillsApi.dll
 C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\obj\Release\IgrEbillsApi.pdb
+C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\obj\Release\IgrEbillsApi.csprojResolveAssemblyReference.cache

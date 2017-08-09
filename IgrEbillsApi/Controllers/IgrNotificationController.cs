@@ -29,7 +29,7 @@ namespace IgrEbillsApi.Controllers
             doc.Load(value.Content.ReadAsStreamAsync().Result);
 
             var obj = JsonConvert.SerializeXmlNode(doc);
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\LogNotification.txt", true))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\inetpub\wwwroot\IGR_API\LogNotification.txt", true))
             {
 
                 DateTime today = DateTime.UtcNow.Date;

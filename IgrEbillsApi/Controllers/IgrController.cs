@@ -38,7 +38,7 @@ namespace IgrEbillsApi.Controllers
 
             var obj = JsonConvert.SerializeXmlNode(doc);
 
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\EZE\Documents\Visual Studio 2015\Projects\igr2\IgrEbillsApi\LogRequest.txt", true))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\inetpub\wwwroot\IGR_API\LogRequest.txt", true))
             {
 
                 DateTime today = DateTime.UtcNow.Date;
@@ -57,8 +57,6 @@ namespace IgrEbillsApi.Controllers
             
 
             utility = new Utility(vResponse);
-
-            Utility.LogRequest(vResponse);
 
             //checking if the productname is empty
             if (string.IsNullOrEmpty(vResponse.ProductName))
