@@ -306,12 +306,11 @@ namespace IgrEbillsApi.Controllers
         private void log(string obj)
         {
 
-            string sPathName = HttpContext.Current.Server.MapPath("/Content/Request");
-            string ipath = Path.Combine(sPathName, DateTime.Today.ToString("dd-MM-yy") + ".txt");
+            string sPathName = HttpContext.Current.Server.MapPath("/request.txt");
 
             try
             {
-                using (StreamWriter w = new StreamWriter(ipath, true))
+                using (StreamWriter w = new StreamWriter(sPathName, true))
                 {
                     w.WriteLine(Environment.NewLine + "New Log Entry: ");
                     w.WriteLine(DateTime.Now.ToString());

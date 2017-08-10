@@ -7,13 +7,13 @@ namespace IgrEbillsApi.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addedPosCollectionTable : IMigrationMetadata
+    public sealed partial class addedProductType : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedPosCollectionTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addedProductType));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707160206404_addedPosCollectionTable"; }
+            get { return "201708101358416_addedProductType"; }
         }
         
         string IMigrationMetadata.Source

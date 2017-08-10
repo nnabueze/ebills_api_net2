@@ -145,7 +145,7 @@ namespace IgrEbillsApi.Controllers
         private void log(string obj)
         {
 
-            string sPathName = HttpContext.Current.Server.MapPath("/Content/Notification");
+            string sPathName = HttpContext.Current.Server.MapPath("/notification");
             string ipath = Path.Combine(sPathName, DateTime.Today.ToString("dd-MM-yy") + ".txt");
 
             try

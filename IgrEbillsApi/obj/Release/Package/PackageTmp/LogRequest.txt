@@ -1,3 +1,0 @@
-8/8/2017 12:00:00 AM
-================================================== 
-{"ValidationRequest":{"Step":"1","BillerID":"70977010-adbf-402b-a0d8-2fb9e12371da","ProductName":"Non-Tax","BillerName":"Great Biller Incorporated","Param":[{"Key":"ercasBillerId","Value":"70977010-adbf-402b-a0d8-2fb9e12371da"},{"Key":"page","Value":"4"},{"Key":"mda","Value":"00d28fba-a368-46eb-944e-fced991d6e08"},{"Key":"subhead","Value":"0MLDNGYgwcwNANp"},{"Key":"name","Value":"eze"},{"Key":"payerid","Value":"000001"},{"Key":"phone","Value":"000001"},{"Key":"start","Value":"2017-02-13"},{"Key":"end","Value":"2017-02-13"},{"Key":"amount","Value":"10000"}]}} 

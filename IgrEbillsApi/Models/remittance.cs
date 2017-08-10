@@ -40,7 +40,7 @@ namespace IgrEbillsApi.Models
 
     public enum RemittanceStatus
     {
-        NonRemitted=0,
-        Remitted=1
+        NonRemite,
+        Remitted
     }
 }

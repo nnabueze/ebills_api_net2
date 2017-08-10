@@ -175,8 +175,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="LogNotification.txt" />
-    <Content Include="LogRequest.txt" />
+    <Content Include="notification.txt" />
+    <Content Include="request.txt" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config">
@@ -199,65 +199,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707151304598_initialMigration.cs" />
-    <Compile Include="Migrations\201707151304598_initialMigration.Designer.cs">
-      <DependentUpon>201707151304598_initialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201708101332054_initialMigration.cs" />
+    <Compile Include="Migrations\201708101332054_initialMigration.Designer.cs">
+      <DependentUpon>201708101332054_initialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707160206404_addedPosCollectionTable.cs" />
-    <Compile Include="Migrations\201707160206404_addedPosCollectionTable.Designer.cs">
-      <DependentUpon>201707160206404_addedPosCollectionTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707160234443_addedCollectionTypeToColeectionTable.cs" />
-    <Compile Include="Migrations\201707160234443_addedCollectionTypeToColeectionTable.Designer.cs">
-      <DependentUpon>201707160234443_addedCollectionTypeToColeectionTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707160243550_addedCollectionStatusToColeectionTable.cs" />
-    <Compile Include="Migrations\201707160243550_addedCollectionStatusToColeectionTable.Designer.cs">
-      <DependentUpon>201707160243550_addedCollectionStatusToColeectionTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707160344469_checkingMigration.cs" />
-    <Compile Include="Migrations\201707160344469_checkingMigration.Designer.cs">
-      <DependentUpon>201707160344469_checkingMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707160520500_addedAutoIncrementCollection.cs" />
-    <Compile Include="Migrations\201707160520500_addedAutoIncrementCollection.Designer.cs">
-      <DependentUpon>201707160520500_addedAutoIncrementCollection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707160528085_makingIdKeyCollection.cs" />
-    <Compile Include="Migrations\201707160528085_makingIdKeyCollection.Designer.cs">
-      <DependentUpon>201707160528085_makingIdKeyCollection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707170101232_testing.cs" />
-    <Compile Include="Migrations\201707170101232_testing.Designer.cs">
-      <DependentUpon>201707170101232_testing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707170117511_addedRemittanceStatusToRemittance.cs" />
-    <Compile Include="Migrations\201707170117511_addedRemittanceStatusToRemittance.Designer.cs">
-      <DependentUpon>201707170117511_addedRemittanceStatusToRemittance.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707170202066_addedUserIDAndPosIDToRemittance.cs" />
-    <Compile Include="Migrations\201707170202066_addedUserIDAndPosIDToRemittance.Designer.cs">
-      <DependentUpon>201707170202066_addedUserIDAndPosIDToRemittance.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707170746210_RemovedMdaRelationshipWithRemittance.cs" />
-    <Compile Include="Migrations\201707170746210_RemovedMdaRelationshipWithRemittance.Designer.cs">
-      <DependentUpon>201707170746210_RemovedMdaRelationshipWithRemittance.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707170927421_AddedPosUserlimit.cs" />
-    <Compile Include="Migrations\201707170927421_AddedPosUserlimit.Designer.cs">
-      <DependentUpon>201707170927421_AddedPosUserlimit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707171035019_removedInvoiceStatus.cs" />
-    <Compile Include="Migrations\201707171035019_removedInvoiceStatus.Designer.cs">
-      <DependentUpon>201707171035019_removedInvoiceStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707171039061_addedInvoiceStatus.cs" />
-    <Compile Include="Migrations\201707171039061_addedInvoiceStatus.Designer.cs">
-      <DependentUpon>201707171039061_addedInvoiceStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707171123463_addStationIdToInvoice.cs" />
-    <Compile Include="Migrations\201707171123463_addStationIdToInvoice.Designer.cs">
-      <DependentUpon>201707171123463_addStationIdToInvoice.cs</DependentUpon>
+    <Compile Include="Migrations\201708101358416_addedProductType.cs" />
+    <Compile Include="Migrations\201708101358416_addedProductType.Designer.cs">
+      <DependentUpon>201708101358416_addedProductType.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\agent.cs" />
@@ -322,50 +270,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707151304598_initialMigration.resx">
-      <DependentUpon>201707151304598_initialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708101332054_initialMigration.resx">
+      <DependentUpon>201708101332054_initialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707160206404_addedPosCollectionTable.resx">
-      <DependentUpon>201707160206404_addedPosCollectionTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707160234443_addedCollectionTypeToColeectionTable.resx">
-      <DependentUpon>201707160234443_addedCollectionTypeToColeectionTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707160243550_addedCollectionStatusToColeectionTable.resx">
-      <DependentUpon>201707160243550_addedCollectionStatusToColeectionTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707160344469_checkingMigration.resx">
-      <DependentUpon>201707160344469_checkingMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707160520500_addedAutoIncrementCollection.resx">
-      <DependentUpon>201707160520500_addedAutoIncrementCollection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707160528085_makingIdKeyCollection.resx">
-      <DependentUpon>201707160528085_makingIdKeyCollection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707170101232_testing.resx">
-      <DependentUpon>201707170101232_testing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707170117511_addedRemittanceStatusToRemittance.resx">
-      <DependentUpon>201707170117511_addedRemittanceStatusToRemittance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707170202066_addedUserIDAndPosIDToRemittance.resx">
-      <DependentUpon>201707170202066_addedUserIDAndPosIDToRemittance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707170746210_RemovedMdaRelationshipWithRemittance.resx">
-      <DependentUpon>201707170746210_RemovedMdaRelationshipWithRemittance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707170927421_AddedPosUserlimit.resx">
-      <DependentUpon>201707170927421_AddedPosUserlimit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707171035019_removedInvoiceStatus.resx">
-      <DependentUpon>201707171035019_removedInvoiceStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707171039061_addedInvoiceStatus.resx">
-      <DependentUpon>201707171039061_addedInvoiceStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707171123463_addStationIdToInvoice.resx">
-      <DependentUpon>201707171123463_addStationIdToInvoice.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708101358416_addedProductType.resx">
+      <DependentUpon>201708101358416_addedProductType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

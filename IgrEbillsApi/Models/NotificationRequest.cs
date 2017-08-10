@@ -21,6 +21,8 @@ namespace IgrEbillsApi.Models
         public string SessionID { get; set; }
         [JsonProperty("SourceBankCode")]
         public string SourceBankCode { get; set; }
+
+        public string productType { get; set; }
         [JsonProperty("DestinationBankCode")]
         public string DestinationBankCode { get; set; }
         [JsonProperty("Param")]

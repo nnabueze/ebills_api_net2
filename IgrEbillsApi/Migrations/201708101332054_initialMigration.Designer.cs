@@ -7,13 +7,13 @@ namespace IgrEbillsApi.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addedRemittanceStatusToRemittance : IMigrationMetadata
+    public sealed partial class initialMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedRemittanceStatusToRemittance));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707170117511_addedRemittanceStatusToRemittance"; }
+            get { return "201708101332054_initialMigration"; }
         }
         
         string IMigrationMetadata.Source
