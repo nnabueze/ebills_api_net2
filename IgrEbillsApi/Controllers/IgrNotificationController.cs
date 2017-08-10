@@ -3,9 +3,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Xml;
 
@@ -29,20 +31,7 @@ namespace IgrEbillsApi.Controllers
             doc.Load(value.Content.ReadAsStreamAsync().Result);
 
             var obj = JsonConvert.SerializeXmlNode(doc);
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\inetpub\wwwroot\IGR_API\LogNotification.txt", true))
-            {
-
-                DateTime today = DateTime.UtcNow.Date;
-                file.WriteLine(today);
-                for (int i = 0; i < 50; i++)
-                {
-                    file.Write("=");
-                }
-                file.WriteLine(" ");
-                file.Write(obj);
-                file.WriteLine(" ");
-
-            }
+            log(obj);
             vResponse = JObject.Parse(obj)["NotificationRequest"].ToObject<NotificationRequest>();
 
             notify.sessionID = vResponse.SessionID;
@@ -150,6 +139,31 @@ namespace IgrEbillsApi.Controllers
                 {
                     notify.amount = Decimal.Parse(sList[i].value);
                 }
+            }
+        }
+
+        private void log(string obj)
+        {
+
+            string sPathName = HttpContext.Current.Server.MapPath("/Content/Notification");
+            string ipath = Path.Combine(sPathName, DateTime.Today.ToString("dd-MM-yy") + ".txt");
+
+            try
+            {
+                using (StreamWriter w = new StreamWriter(ipath, true))
+                {
+                    w.WriteLine(Environment.NewLine + "New Log Entry: ");
+                    w.WriteLine(DateTime.Now.ToString());
+                    w.WriteLine(obj);
+                    w.WriteLine("__________________________");
+                    w.WriteLine(" ");
+                    w.Flush();
+                    w.Close();
+                }
+            }
+            catch (Exception)
+            {
+                //LogErr(ipath, ex.Message, CStr(myErr.Source))
             }
         }
     }

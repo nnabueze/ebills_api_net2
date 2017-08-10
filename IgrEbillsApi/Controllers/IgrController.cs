@@ -3,8 +3,10 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Xml;
 
@@ -38,20 +40,8 @@ namespace IgrEbillsApi.Controllers
 
             var obj = JsonConvert.SerializeXmlNode(doc);
 
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\inetpub\wwwroot\IGR_API\LogRequest.txt", true))
-            {
+            log(obj);
 
-                DateTime today = DateTime.UtcNow.Date;
-                file.WriteLine(today);
-                for (int i = 0; i < 50; i++)
-                {
-                    file.Write("=");
-                }
-                file.WriteLine(" ");
-                file.Write(obj);
-                file.WriteLine(" ");
-
-            }
             vResponse = JObject.Parse(obj)["ValidationRequest"].ToObject<ValidationRequest>();
 
             
@@ -310,6 +300,31 @@ namespace IgrEbillsApi.Controllers
                 {
                     Invoice = sList[i].value;
                 }
+            }
+        }
+
+        private void log(string obj)
+        {
+
+            string sPathName = HttpContext.Current.Server.MapPath("/Content/Request");
+            string ipath = Path.Combine(sPathName, DateTime.Today.ToString("dd-MM-yy") + ".txt");
+
+            try
+            {
+                using (StreamWriter w = new StreamWriter(ipath, true))
+                {
+                    w.WriteLine(Environment.NewLine + "New Log Entry: ");
+                    w.WriteLine(DateTime.Now.ToString());
+                    w.WriteLine(obj);
+                    w.WriteLine("__________________________");
+                    w.WriteLine(" ");
+                    w.Flush();
+                    w.Close();
+                }
+            }
+            catch (Exception)
+            {
+                //LogErr(ipath, ex.Message, CStr(myErr.Source))
             }
         }
     }
