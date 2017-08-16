@@ -351,10 +351,17 @@ namespace IgrEbillsApi.Models
 
             db.SaveChanges();
 
-            Console.WriteLine(tinRecord);
+            //Console.WriteLine(tinRecord);
 
 
             return tinRecord;
+        }
+
+        public void LogRequest(string obj)
+        {
+            TestLog l = new TestLog() { Content = obj };
+            var LogResponse = db.testlogs.Add(l);
+            db.SaveChanges();
         }
 
     }

@@ -31,7 +31,7 @@ namespace IgrEbillsApi.Controllers
             doc.Load(value.Content.ReadAsStreamAsync().Result);
 
             var obj = JsonConvert.SerializeXmlNode(doc);
-            log(obj);
+            utility.LogRequest(obj);
             vResponse = JObject.Parse(obj)["NotificationRequest"].ToObject<NotificationRequest>();
 
             notify.sessionID = vResponse.SessionID;

@@ -207,6 +207,18 @@
     <Compile Include="Migrations\201708101358416_addedProductType.Designer.cs">
       <DependentUpon>201708101358416_addedProductType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708101550415_addConlogTable.cs" />
+    <Compile Include="Migrations\201708101550415_addConlogTable.Designer.cs">
+      <DependentUpon>201708101550415_addConlogTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708151311052_deleteTestLog.cs" />
+    <Compile Include="Migrations\201708151311052_deleteTestLog.Designer.cs">
+      <DependentUpon>201708151311052_deleteTestLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708151313177_Testlog.cs" />
+    <Compile Include="Migrations\201708151313177_Testlog.Designer.cs">
+      <DependentUpon>201708151313177_Testlog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\agent.cs" />
     <Compile Include="Models\aspnetrole.cs" />
@@ -218,6 +230,7 @@
     <Compile Include="Models\AuthRepository.cs" />
     <Compile Include="Models\bank.cs" />
     <Compile Include="Models\beneficiary.cs" />
+    <Compile Include="Models\Conlog.cs" />
     <Compile Include="Models\Field.cs" />
     <Compile Include="Models\igr.cs" />
     <Compile Include="Models\IgrAdo.cs" />
@@ -237,6 +250,7 @@
     <Compile Include="Models\reportslisting.cs" />
     <Compile Include="Models\revenuehead.cs" />
     <Compile Include="Models\subhead.cs" />
+    <Compile Include="Models\TestLog.cs" />
     <Compile Include="Models\tin.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\Utility.cs" />
@@ -275,6 +289,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708101358416_addedProductType.resx">
       <DependentUpon>201708101358416_addedProductType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708101550415_addConlogTable.resx">
+      <DependentUpon>201708101550415_addConlogTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708151311052_deleteTestLog.resx">
+      <DependentUpon>201708151311052_deleteTestLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708151313177_Testlog.resx">
+      <DependentUpon>201708151313177_Testlog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

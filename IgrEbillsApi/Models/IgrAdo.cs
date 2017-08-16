@@ -37,6 +37,8 @@ namespace IgrEbillsApi.Models
         public virtual DbSet<aspnetuserrole> aspnetuserroles { get; set; }
 
         public virtual DbSet<UserModel> UserModels { get; set; }
+        public virtual DbSet<Conlog> Conlog { get; set; }
+        public virtual DbSet<TestLog> testlogs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -40,13 +40,16 @@ namespace IgrEbillsApi.Controllers
 
             var obj = JsonConvert.SerializeXmlNode(doc);
 
-            log(obj);
+            
 
             vResponse = JObject.Parse(obj)["ValidationRequest"].ToObject<ValidationRequest>();
 
             
 
             utility = new Utility(vResponse);
+
+            //utility.LogRequest(obj);
+            log(obj);
 
             //checking if the productname is empty
             if (string.IsNullOrEmpty(vResponse.ProductName))
@@ -318,7 +321,6 @@ namespace IgrEbillsApi.Controllers
                     w.WriteLine("__________________________");
                     w.WriteLine(" ");
                     w.Flush();
-                    w.Close();
                 }
             }
             catch (Exception)
