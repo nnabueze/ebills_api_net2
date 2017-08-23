@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.Serialization;
+using System.Text;
 using System.Web;
 using System.Web.Http;
 using System.Xml;
@@ -33,99 +35,89 @@ namespace IgrEbillsApi.Controllers
 
         //Posting request from Nibss
         [HttpPost]
-        public HttpResponseMessage PostRequest(HttpRequestMessage value)
+        public IHttpActionResult PostRequest(HttpRequestMessage value)
         {
-            var doc = new XmlDocument();
-            doc.Load(value.Content.ReadAsStreamAsync().Result);
 
-            var obj = JsonConvert.SerializeXmlNode(doc);
+            string obj = getJsonString(value);
 
-            
-
-            vResponse = JObject.Parse(obj)["ValidationRequest"].ToObject<ValidationRequest>();
-
-            
+            vResponse = JObject.Parse(obj)["ValidationRequest"].ToObject<ValidationRequest>();            
 
             utility = new Utility(vResponse);
 
-            //utility.LogRequest(obj);
             log(obj);
 
-            //checking if the productname is empty
-            if (string.IsNullOrEmpty(vResponse.ProductName))
+            switch (vResponse.ProductName)
             {
-                return GetHttpMsg("ProductName parameter missing");
+                case "Non-Tax":
+
+                    return GetNonTax(vResponse);
+
+                case "Tax":
+
+                    return GetTax(vResponse);
+
+                case "Remittance":
+
+                    return GetRemittance(vResponse);
+
+                case "refcode":
+
+                    return RefCode();
+
+                case "Invoice":
+
+                    return GetInvoice(vResponse);
+
+                default: 
+
+                    return GetHttpMsg("ProductName parameter missing");
             }
-
-            //checking if the product is non-tax
-            if (vResponse.ProductName.Equals("Non-Tax"))
-                  return GetNonTax(vResponse);
-
-            //check if product is tax
-            if (vResponse.ProductName.Equals("Tax"))
-                return GetTax(vResponse);
-
-            //check if product is remittance
-            if (vResponse.ProductName.Equals("Remittance"))
-                return GetRemittance(vResponse);
-
-            //check if product is invoice
-            //if (vResponse.ProductName.Equals("Invoice"))
-            //    return GetInvoice(vResponse);
-
-            //check if product is refcode
-            if (vResponse.ProductName.Equals("refcode"))
-                  return RefCode();
-
-            return GetHttpMsg("ProductName paramter missing");
         }
 
 
         //getting NonTax
-        private HttpResponseMessage GetNonTax(ValidationRequest vResponse)
+        private IHttpActionResult GetNonTax(ValidationRequest vResponse)
         {
             ParamToArray(vResponse.Param);
 
-            //checking if step is 1
-            if (vResponse.Step.Equals(1))
+            switch (vResponse.Step)
             {
-                if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(payerid))
-                {
-                    return GetHttpMsg("Name or PayerId field can not be empty");
-                }
+                case 1:
+                    if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(payerid))
+                    {
+                        return GetHttpMsg("Name or PayerId field can not be empty");
+                    }
 
-                sResponse = utility.GetMdaResponse(2, ercasBillerId);
+                    sResponse = utility.GetMdaResponse(2, ercasBillerId);
+                    break; 
+                case 2:
+                    if (string.IsNullOrEmpty(mda) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(payerid) || string.IsNullOrEmpty(ercasBillerId))
+                    {
+                        return GetHttpMsg("Parameter Missing");
+                    }
+
+                    sResponse = utility.GetSubheadResponse(3, mda);
+                    break;
+                case 3:
+                    if (string.IsNullOrEmpty(amount))
+                    {
+                        return GetHttpMsg("Amount field can not be empty");
+                    }
+
+                    sResponse = utility.GetResponse(4);
+                    break;
+                    
+                default:
+                    return GetHttpMsg("Next Page Not Included");
             }
 
-            //checking if step is 2
-            if (vResponse.Step.Equals(2))
-            {
-                if (string.IsNullOrEmpty(mda) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(payerid) || string.IsNullOrEmpty(ercasBillerId))
-                {
-                    return GetHttpMsg("Parameter Missing");
-                }
-
-                sResponse = utility.GetSubheadResponse(3, mda);
-
-            }
-
-            //checking if step is 3
-            if (vResponse.Step.Equals(3))
-            {
-                if (string.IsNullOrEmpty(amount))
-                {
-                    return GetHttpMsg("Amount field can not be empty");
-                }
-
-                sResponse = utility.GetResponse(4);
-            }
 
             return GetHttpMsg();
 
         }
 
 
-        private HttpResponseMessage GetTax(ValidationRequest vResponse)
+        private IHttpActionResult GetTax(ValidationRequest vResponse)
         {
             ParamToArray(vResponse.Param);
 
@@ -175,7 +167,7 @@ namespace IgrEbillsApi.Controllers
             return GetHttpMsg();
         }
 
-        private HttpResponseMessage GetRemittance(ValidationRequest vResponse)
+        private IHttpActionResult GetRemittance(ValidationRequest vResponse)
         {
             ParamToArray(vResponse.Param);
 
@@ -196,7 +188,7 @@ namespace IgrEbillsApi.Controllers
         }
 
 
-        private HttpResponseMessage GetInvoice(ValidationRequest vResponse)
+        private IHttpActionResult GetInvoice(ValidationRequest vResponse)
         {
             ParamToArray(vResponse.Param);
 
@@ -218,7 +210,7 @@ namespace IgrEbillsApi.Controllers
 
 
         //creating a refcode
-        private HttpResponseMessage RefCode()
+        private IHttpActionResult RefCode()
         {
             tin tin = utility.tinCode();
             if (tin == null)
@@ -229,21 +221,44 @@ namespace IgrEbillsApi.Controllers
             return GetHttpMsg();
         }
 
-        //
+        public string getJsonString(HttpRequestMessage value)
+        {
+            var doc = new XmlDocument();
+            doc.Load(value.Content.ReadAsStreamAsync().Result);
+            var obj = JsonConvert.SerializeXmlNode(doc);
 
+            return obj;
+        }
 
 
         //get HTTPerrorMessage
-        public HttpResponseMessage GetHttpMsg(string msg=null)
+        public IHttpActionResult GetHttpMsg(string msg=null)
         {
             if (string.IsNullOrEmpty(msg))
             {
-                return Request.CreateResponse<ValidationResponse>(HttpStatusCode.OK, sResponse);
+                DataContractSerializer doc = new DataContractSerializer(sResponse.GetType());
+                MemoryStream ms = new MemoryStream();
+                doc.WriteObject(ms, sResponse);
+                var i = Encoding.UTF8.GetString(ms.ToArray());
+                var r = i.Replace("xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"", "");
+                var a = r.Replace("i:nil=\"true\"", "");
+                var ss = new XmlDocument();
+                ss.LoadXml(a);
+                return Content(HttpStatusCode.OK, ss.DocumentElement, Configuration.Formatters.XmlFormatter);
             }
             else
             {
-                return Request.CreateResponse<ValidationResponse>(HttpStatusCode.BadRequest, GetErrorResponse(msg, "400"));
-                
+
+                DataContractSerializer doc = new DataContractSerializer(GetErrorResponse(msg, "400").GetType());
+                MemoryStream ms = new MemoryStream();
+                doc.WriteObject(ms, GetErrorResponse(msg, "400"));
+                var i = Encoding.UTF8.GetString(ms.ToArray());
+                var r = i.Replace("xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"", "");
+                var a = r.Replace("i:nil=\"true\"", "");
+                var ss = new XmlDocument(); 
+                ss.LoadXml(a); 
+                return Content(HttpStatusCode.BadRequest, ss.DocumentElement, Configuration.Formatters.XmlFormatter);
+
             }
             
         }
@@ -255,6 +270,8 @@ namespace IgrEbillsApi.Controllers
             sResponse.NextStep = vResponse.Step;
             sResponse.ResponseCode = code;
             sResponse.ResponseMessage = msg;
+            sResponse.field = null;
+            sResponse.Param = null;
 
             return sResponse;
         }
