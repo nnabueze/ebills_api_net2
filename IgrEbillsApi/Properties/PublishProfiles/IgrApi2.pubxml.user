@@ -25,7 +25,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/10/2017 11:07:26</publishTime>
     </File>
     <File Include="bin/IgrEbillsApi.dll">
-      <publishTime>08/15/2017 15:20:59</publishTime>
+      <publishTime>08/16/2017 10:14:03</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>07/10/2017 11:07:26</publishTime>
@@ -160,7 +160,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/14/2017 11:11:35</publishTime>
     </File>
     <File Include="request.txt">
-      <publishTime>08/15/2017 14:51:23</publishTime>
+      <publishTime>08/16/2017 10:07:57</publishTime>
     </File>
     <File Include="scripts/ai.0.22.9-build00167.js">
       <publishTime>07/10/2017 11:07:26</publishTime>
