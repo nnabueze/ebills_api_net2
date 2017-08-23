@@ -121,47 +121,42 @@ namespace IgrEbillsApi.Controllers
         {
             ParamToArray(vResponse.Param);
 
-            //checking if step is 1
-            if (vResponse.Step.Equals(1))
+            switch (vResponse.Step)
             {
-                if (string.IsNullOrEmpty(tin))
-                {
-                    return GetHttpMsg("Tin field can not be empty");
-                }
+                case 1:
+                    if (string.IsNullOrEmpty(tin))
+                    {
+                        return GetHttpMsg("Tin field can not be empty");
+                    }
 
-                var Tin_verify = utility.TinVerify(tin, ercasBillerId);
-                if (Tin_verify != null)
-                {
-                    sResponse = utility.GetTinResponse(2,tin, ercasBillerId);
-                }
-                else
-                {
-                    return GetHttpMsg("Invalid Tin Number");
-                }
-            }
+                    var Tin_verify = utility.TinVerify(tin, ercasBillerId);
+                    if (Tin_verify != null)
+                    {
+                        sResponse = utility.GetTinResponse(2, tin, ercasBillerId);
+                    }
+                    else
+                    {
+                        return GetHttpMsg("Invalid Tin Number");
+                    }
+                    break;
+                case 2:
+                    if (string.IsNullOrEmpty(mda))
+                    {
+                        return GetHttpMsg("Select an MDA");
+                    }
 
-            //check if the step 2
-            if (vResponse.Step.Equals(2))
-            {
-                if (string.IsNullOrEmpty(mda))
-                {
-                    return GetHttpMsg("Select an MDA");
-                }
+                    sResponse = utility.GetSubheadResponse(3, mda);
+                    break;
+                case 3:
+                    if (string.IsNullOrEmpty(amount))
+                    {
+                        return GetHttpMsg("Amonut field can not be empty");
+                    }
 
-                sResponse = utility.GetSubheadResponse(3, mda);
-
-            }
-
-            //check if the step3
-            if (vResponse.Step.Equals(3))
-            {
-                if (string.IsNullOrEmpty(amount))
-                {
-                    return GetHttpMsg("Amonut field can not be empty");
-                }
-
-                sResponse = utility.GetResponse(4);
-
+                    sResponse = utility.GetResponse(4);
+                    break;
+                default:
+                    return GetHttpMsg("Next Page Not Included");
             }
 
             return GetHttpMsg();

@@ -280,3 +280,33 @@ New Log Entry:
 {"ValidationRequest":{"Step":"1","BillerID":"32553d48-7893-4891-9bb5-08d99814c5e7","ProductName":"Non-Tax","BillerName":"Great Biller Incorporated","Param":[{"Key":"ercasBillerId","Value":"32553d48-7893-4891-9bb5-08d99814c5e7"},{"Key":"page","Value":"4"},{"Key":"mda","Value":"f91cdea6-499e-4088-8013-50f46b6ca1dc"},{"Key":"subhead","Value":"0MLDNGYgwcwNANp"},{"Key":"name","Value":"eze"},{"Key":"payerid","Value":"000001"},{"Key":"phone","Value":"000001"},{"Key":"start","Value":"2017-02-13"},{"Key":"end","Value":"2017-02-13"},{"Key":"amount","Value":"10000"}]}}
 __________________________
  
+
+New Log Entry: 
+8/23/2017 3:52:44 PM
+{"ValidationRequest":{"Step":"1","BillerID":"32553d48-7893-4891-9bb5-08d99814c5e7","ProductName":"Non-Tax","BillerName":"Great Biller Incorporated","Param":[{"Key":"ercasBillerId","Value":"32553d48-7893-4891-9bb5-08d99814c5e7"},{"Key":"page","Value":"4"},{"Key":"mda","Value":"f91cdea6-499e-4088-8013-50f46b6ca1dc"},{"Key":"subhead","Value":"0MLDNGYgwcwNANp"},{"Key":"name","Value":"eze"},{"Key":"payerid","Value":"000001"},{"Key":"phone","Value":"000001"},{"Key":"start","Value":"2017-02-13"},{"Key":"end","Value":"2017-02-13"},{"Key":"amount","Value":"10000"}]}}
+__________________________
+ 
+
+New Log Entry: 
+8/23/2017 3:54:16 PM
+{"ValidationRequest":{"Step":"1","BillerID":"70977010-adbf-402b-a0d8-2fb9e12371da","ProductName":"Tax","BillerName":"Great Biller Incorporated","Param":[{"Key":"ercasBillerId","Value":"70977010-adbf-402b-a0d8-2fb9e12371da"},{"Key":"Tin","Value":"12345"},{"Key":"page","Value":"6"}]}}
+__________________________
+ 
+
+New Log Entry: 
+8/23/2017 3:54:54 PM
+{"?xml":{"@version":"1.0","@encoding":"UTF-8"},"ValidationRequest":{"Step":"3","BillerID":"77vy3iWBHqlpg7f","BillerName":"Great Biller Incorporated","ProductName":"Tax","NextStep":"2","Param":[{"key":"name","value":"MAMSUR HALIRU SIDI"},{"key":"phone","value":"08124092006"},{"key":"Tin","value":"74783587712"},{"key":"ercasBillerId","value":"77vy3iWBHqlpg7f"},{"key":"mda","value":"040f7b7e-a38b-4fad-aa09-76dbf49a120a"},{"key":"amount","value":"3"}]}}
+__________________________
+ 
+
+New Log Entry: 
+8/23/2017 3:55:24 PM
+{"?xml":{"@version":"1.0","@encoding":"UTF-8","@standalone":"yes"},"ValidationRequest":{"Step":"1","ProductName":"Remittance","BillerID":"77vy3iWBHqlpg7f","Param":[{"Key":"Remittance","Value":"0000100101"},{"Key":"ercasBillerId","Value":"77vy3iWBHqlpg7f"},{"Key":"page","Value":"12"}]}}
+__________________________
+ 
+
+New Log Entry: 
+8/23/2017 3:56:08 PM
+{"?xml":{"@version":"1.0","@encoding":"UTF-8","@standalone":"yes"},"ValidationRequest":{"Step":"1","BillerID":"77vy3iWBHqlpg7f","ProductName":"Invoice","Param":[{"Key":"Invoice","Value":"0001"},{"Key":"ercasBillerId","Value":"77vy3iWBHqlpg7f"},{"Key":"page","Value":"10"}]}}
+__________________________
+ 
